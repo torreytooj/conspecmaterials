@@ -1,0 +1,115 @@
+[08-Jul-2014 20:00:19 UTC] PHP Parse error:  syntax error, unexpected '<' in /home3/bridge20/public_html/wp-content/themes/bridge/woocommerce/archive-product.php on line 11
+[15-Jul-2014 21:27:03 UTC] PHP Parse error:  syntax error, unexpected '$post_items' (T_VARIABLE) in /home3/bridge20/public_html/wp-content/plugins/contact-form-7/includes/functions.php on line 12
+[15-Jul-2014 21:27:27 UTC] PHP Parse error:  syntax error, unexpected '$post_items' (T_VARIABLE) in /home3/bridge20/public_html/wp-content/plugins/contact-form-7/includes/functions.php on line 12
+[15-Jul-2014 21:28:18 UTC] PHP Parse error:  syntax error, unexpected '$post_items' (T_VARIABLE) in /home3/bridge20/public_html/wp-content/plugins/contact-form-7/includes/functions.php on line 12
+[12-Jan-2015 17:32:19 America/Chicago] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so' - /opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so: file too short in Unknown on line 0
+[12-Jan-2015 17:32:19 America/Chicago] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/ixed.5.4.lin' - /opt/php54/lib/php/extensions/no-debug-non-zts-20100525/ixed.5.4.lin: file too short in Unknown on line 0
+[12-Jan-2015 17:32:20 America/Chicago] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so' - /opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so: file too short in Unknown on line 0
+[12-Jan-2015 17:32:20 America/Chicago] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/ixed.5.4.lin' - /opt/php54/lib/php/extensions/no-debug-non-zts-20100525/ixed.5.4.lin: file too short in Unknown on line 0
+[12-Jan-2015 17:42:50 America/Chicago] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so' - /opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so: file too short in Unknown on line 0
+[12-Jan-2015 17:42:50 America/Chicago] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/ixed.5.4.lin' - /opt/php54/lib/php/extensions/no-debug-non-zts-20100525/ixed.5.4.lin: file too short in Unknown on line 0
+[12-Jan-2015 17:42:51 America/Chicago] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so' - /opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so: file too short in Unknown on line 0
+[12-Jan-2015 17:42:51 America/Chicago] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/ixed.5.4.lin' - /opt/php54/lib/php/extensions/no-debug-non-zts-20100525/ixed.5.4.lin: file too short in Unknown on line 0
+[12-Jan-2015 18:12:48 America/Chicago] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so' - /opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so: file too short in Unknown on line 0
+[12-Jan-2015 18:12:48 America/Chicago] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/ixed.5.4.lin' - /opt/php54/lib/php/extensions/no-debug-non-zts-20100525/ixed.5.4.lin: file too short in Unknown on line 0
+[12-Jan-2015 18:12:49 America/Chicago] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so' - /opt/php54/lib/php/extensions/no-debug-non-zts-20100525/imagick.so: file too short in Unknown on line 0
+[12-Jan-2015 18:12:49 America/Chicago] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/php54/lib/php/extensions/no-debug-non-zts-20100525/ixed.5.4.lin' - /opt/php54/lib/php/extensions/no-debug-non-zts-20100525/ixed.5.4.lin: file too short in Unknown on line 0
+[04-Feb-2015 15:34:45 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query DELETE FROM 9znmyg_options WHERE option_name = 'rewrite_rules' made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), call_user_func_array, register_wpmtpv2_post_type, flush_rewrite_rules, WP_Rewrite->flush_rules, delete_option
+[26-May-2015 17:11:29 UTC] PHP Fatal error:  Cannot redeclare lpd_install_mediaboxes() (previously declared in /home2/lawnetic/public_html/conspec/wp-content/themes/conspec_materials/functions/vc/vc_media_grid_widget.php:207) in /home2/lawnetic/public_html/conspec/wp-content/themes/conspec_materials/functions/vc/vc_media_grid_widget.php on line 205
+[26-May-2015 17:12:55 UTC] PHP Fatal error:  Cannot redeclare lpd_install_mediaboxes() (previously declared in /home2/lawnetic/public_html/conspec/wp-content/themes/conspec_materials/functions/vc/vc_media_grid_widget.php:207) in /home2/lawnetic/public_html/conspec/wp-content/themes/conspec_materials/functions/vc/vc_media_grid_widget.php on line 205
+[26-May-2015 17:32:04 UTC] PHP Fatal error:  Cannot redeclare lpd_install_mediaboxes() (previously declared in /home2/lawnetic/public_html/conspec/wp-content/themes/conspec_materials/functions/vc/vc_media_grid_widget.php:207) in /home2/lawnetic/public_html/conspec/wp-content/themes/conspec_materials/functions/vc/vc_media_grid_widget.php on line 205
+[19-Jun-2015 12:22:09 UTC] PHP Warning:  include(/home2/lawnetic/public_html/conspec/wp-content/plugins/wp-super-cache/wp-cache-base.php): failed to open stream: No such file or directory in /home1/rickdurand/public_html/wp-content/plugins/wp-super-cache/wp-cache.php on line 65
+[19-Jun-2015 12:22:09 UTC] PHP Warning:  include(): Failed opening '/home2/lawnetic/public_html/conspec/wp-content/plugins/wp-super-cache/wp-cache-base.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home1/rickdurand/public_html/wp-content/plugins/wp-super-cache/wp-cache.php on line 65
+[19-Jun-2015 12:22:09 UTC] PHP Warning:  include_once(/home2/lawnetic/public_html/conspec/wp-content/plugins/wp-super-cache/ossdl-cdn.php): failed to open stream: No such file or directory in /home1/rickdurand/public_html/wp-content/plugins/wp-super-cache/wp-cache.php on line 82
+[19-Jun-2015 12:22:09 UTC] PHP Warning:  include_once(): Failed opening '/home2/lawnetic/public_html/conspec/wp-content/plugins/wp-super-cache/ossdl-cdn.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home1/rickdurand/public_html/wp-content/plugins/wp-super-cache/wp-cache.php on line 82
+[19-Jun-2015 12:22:13 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/rickdurand/public_html/wp-content/plugins/wp-super-cache/wp-cache.php:65) in /home1/rickdurand/public_html/wp-content/plugins/maintenance/load/functions.php on line 305
+[19-Jun-2015 12:22:13 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/rickdurand/public_html/wp-content/plugins/wp-super-cache/wp-cache.php:65) in /home1/rickdurand/public_html/wp-content/plugins/maintenance/load/functions.php on line 325
+[19-Jun-2015 12:22:14 UTC] PHP Warning:  include(/home2/lawnetic/public_html/conspec/wp-content/plugins/wp-super-cache/wp-cache-base.php): failed to open stream: No such file or directory in /home1/rickdurand/public_html/wp-content/plugins/wp-super-cache/wp-cache.php on line 65
+[19-Jun-2015 12:22:14 UTC] PHP Warning:  include(): Failed opening '/home2/lawnetic/public_html/conspec/wp-content/plugins/wp-super-cache/wp-cache-base.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home1/rickdurand/public_html/wp-content/plugins/wp-super-cache/wp-cache.php on line 65
+[19-Jun-2015 12:22:14 UTC] PHP Warning:  include_once(/home2/lawnetic/public_html/conspec/wp-content/plugins/wp-super-cache/ossdl-cdn.php): failed to open stream: No such file or directory in /home1/rickdurand/public_html/wp-content/plugins/wp-super-cache/wp-cache.php on line 82
+[19-Jun-2015 12:22:14 UTC] PHP Warning:  include_once(): Failed opening '/home2/lawnetic/public_html/conspec/wp-content/plugins/wp-super-cache/ossdl-cdn.php' for inclusion (include_path='.:/opt/php54/lib/php') in /home1/rickdurand/public_html/wp-content/plugins/wp-super-cache/wp-cache.php on line 82
+[19-Jun-2015 12:22:15 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/rickdurand/public_html/wp-content/plugins/wp-super-cache/wp-cache.php:65) in /home1/rickdurand/public_html/wp-content/plugins/maintenance/load/functions.php on line 305
+[19-Jun-2015 12:22:15 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/rickdurand/public_html/wp-content/plugins/wp-super-cache/wp-cache.php:65) in /home1/rickdurand/public_html/wp-content/plugins/maintenance/load/functions.php on line 325
+[12-Jul-2015 16:59:55 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query DELETE FROM `9znmyg_options` WHERE `option_name` = 'rewrite_rules' made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('wp_loaded'), call_user_func_array, WP_Rewrite->flush_rules, delete_option
+[29-Jul-2015 21:45:49 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query DELETE FROM `9znmyg_options` WHERE `option_name` = 'rewrite_rules' made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('wp_loaded'), call_user_func_array, WP_Rewrite->flush_rules, delete_option
+[09-Sep-2015 21:28:55 UTC] WordPress database error Table 'rickdura_conspec1.wp_terms' doesn't exist for query SELECT SQL_CALC_FOUND_ROWS  9znmyg_posts.ID FROM 9znmyg_posts  WHERE 1=1  AND ((wp_posts.post_title LIKE '%vulkem%') OR (wp_posts.post_content LIKE '%vulkem%') OR EXISTS (
+                    SELECT * FROM wp_terms
+                    INNER JOIN wp_term_taxonomy
+                        ON wp_term_taxonomy.term_id = wp_terms.term_id
+                    INNER JOIN wp_term_relationships
+                        ON wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id
+                    WHERE (taxonomy = 'post_tag' OR taxonomy = 'product_tag')
+                        AND object_id = wp_posts.ID
+                        AND wp_terms.name LIKE '%vulkem%'
+                        )
+                    ) AND 9znmyg_posts.post_type IN ('post', 'page', 'attachment', 'product', 'portfolio') AND (9znmyg_posts.post_status = 'publish' OR 9znmyg_posts.post_author = 1 AND 9znmyg_posts.post_status = 'private')  ORDER BY 9znmyg_posts.post_title LIKE '%vulkem%' DESC, 9znmyg_posts.post_date DESC LIMIT 0, 10 made by require('wp-blog-header.php'), wp, WP->main, WP->query_posts, WP_Query->query, WP_Query->get_posts
+[11-Sep-2015 15:40:38 UTC] WordPress database error Table 'rickdura_conspec1.wp_terms' doesn't exist for query SELECT SQL_CALC_FOUND_ROWS  9znmyg_posts.ID FROM 9znmyg_posts  WHERE 1=1  AND ((wp_posts.post_title LIKE '%miraclebond%') OR (wp_posts.post_content LIKE '%miraclebond%') OR EXISTS (
+                    SELECT * FROM wp_terms
+                    INNER JOIN wp_term_taxonomy
+                        ON wp_term_taxonomy.term_id = wp_terms.term_id
+                    INNER JOIN wp_term_relationships
+                        ON wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id
+                    WHERE (taxonomy = 'post_tag' OR taxonomy = 'product_tag')
+                        AND object_id = wp_posts.ID
+                        AND wp_terms.name LIKE '%miraclebond%'
+                        )
+                    ) AND ((wp_posts.post_title LIKE '%1310%') OR (wp_posts.post_content LIKE '%1310%') OR EXISTS (
+                    SELECT * FROM wp_terms
+                    INNER JOIN wp_term_taxonomy
+                        ON wp_term_taxonomy.term_id = wp_terms.term_id
+                    INNER JOIN wp_term_relationships
+                        ON wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id
+                    WHERE (taxonomy = 'post_tag' OR taxonomy = 'product_tag')
+                        AND object_id = wp_posts.ID
+                        AND wp_terms.name LIKE '%1310%'
+                        )
+                    ) AND 9znmyg_posts.post_type IN ('post', 'page', 'attachment', 'product', 'portfolio') AND (9znmyg_posts.post_status = 'publish' OR 9znmyg_posts.post_author = 1 AND 9znmyg_posts.post_status = 'private')  ORDER BY (CASE WHEN 9znmyg_posts.post_title LIKE '%miraclebond 1310%' THEN 1 WHEN 9znmyg_posts.post_title LIKE '%miraclebond%' AND 9znmyg_posts.post_title LIKE '%1310%' THEN 2 WHEN 9znmyg_posts.post_title LIKE '%miraclebond%' OR 9znmyg_posts.post_title LIKE '%1310%' THEN 3 WHEN 9znmyg_posts.post_content LIKE '%miraclebond 1310%' THEN 4 ELSE 5 END), 9znmyg_posts.post_date DESC LIMIT 0, 10 made by require('wp-blog-header.php'), wp, WP->main, WP->query_posts, WP_Query->query, WP_Query->get_posts
+[11-Sep-2015 15:40:51 UTC] WordPress database error Table 'rickdura_conspec1.wp_terms' doesn't exist for query SELECT SQL_CALC_FOUND_ROWS  9znmyg_posts.ID FROM 9znmyg_posts  WHERE 1=1  AND ((wp_posts.post_title LIKE '%1310%') OR (wp_posts.post_content LIKE '%1310%') OR EXISTS (
+                    SELECT * FROM wp_terms
+                    INNER JOIN wp_term_taxonomy
+                        ON wp_term_taxonomy.term_id = wp_terms.term_id
+                    INNER JOIN wp_term_relationships
+                        ON wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id
+                    WHERE (taxonomy = 'post_tag' OR taxonomy = 'product_tag')
+                        AND object_id = wp_posts.ID
+                        AND wp_terms.name LIKE '%1310%'
+                        )
+                    ) AND 9znmyg_posts.post_type IN ('post', 'page', 'attachment', 'product', 'portfolio') AND (9znmyg_posts.post_status = 'publish' OR 9znmyg_posts.post_author = 1 AND 9znmyg_posts.post_status = 'private')  ORDER BY 9znmyg_posts.post_title LIKE '%1310%' DESC, 9znmyg_posts.post_date DESC LIMIT 0, 10 made by require('wp-blog-header.php'), wp, WP->main, WP->query_posts, WP_Query->query, WP_Query->get_posts
+[12-Sep-2015 19:28:02 UTC] WordPress database error Table 'rickdura_conspec1.wp_terms' doesn't exist for query SELECT SQL_CALC_FOUND_ROWS  9znmyg_posts.ID FROM 9znmyg_posts  WHERE 1=1  AND ((wp_posts.post_title LIKE '%vulkem%') OR (wp_posts.post_content LIKE '%vulkem%') OR EXISTS (
+                    SELECT * FROM wp_terms
+                    INNER JOIN wp_term_taxonomy
+                        ON wp_term_taxonomy.term_id = wp_terms.term_id
+                    INNER JOIN wp_term_relationships
+                        ON wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id
+                    WHERE (taxonomy = 'post_tag' OR taxonomy = 'product_tag')
+                        AND object_id = wp_posts.ID
+                        AND wp_terms.name LIKE '%vulkem%'
+                        )
+                    ) AND 9znmyg_posts.post_type IN ('post', 'page', 'attachment', 'product', 'portfolio') AND (9znmyg_posts.post_status = 'publish' OR 9znmyg_posts.post_author = 1 AND 9znmyg_posts.post_status = 'private')  ORDER BY 9znmyg_posts.post_title LIKE '%vulkem%' DESC, 9znmyg_posts.post_date DESC LIMIT 0, 10 made by require('wp-blog-header.php'), wp, WP->main, WP->query_posts, WP_Query->query, WP_Query->get_posts
+[12-Sep-2015 19:29:20 UTC] WordPress database error Table 'rickdura_conspec1.wp_terms' doesn't exist for query SELECT SQL_CALC_FOUND_ROWS  9znmyg_posts.ID FROM 9znmyg_posts  WHERE 1=1  AND ((wp_posts.post_title LIKE '%tape%') OR (wp_posts.post_content LIKE '%tape%') OR EXISTS (
+                    SELECT * FROM wp_terms
+                    INNER JOIN wp_term_taxonomy
+                        ON wp_term_taxonomy.term_id = wp_terms.term_id
+                    INNER JOIN wp_term_relationships
+                        ON wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id
+                    WHERE (taxonomy = 'post_tag' OR taxonomy = 'product_tag')
+                        AND object_id = wp_posts.ID
+                        AND wp_terms.name LIKE '%tape%'
+                        )
+                    ) AND 9znmyg_posts.post_type IN ('post', 'page', 'attachment', 'product', 'portfolio') AND (9znmyg_posts.post_status = 'publish' OR 9znmyg_posts.post_author = 1 AND 9znmyg_posts.post_status = 'private')  ORDER BY 9znmyg_posts.post_title LIKE '%tape%' DESC, 9znmyg_posts.post_date DESC LIMIT 0, 10 made by require('wp-blog-header.php'), wp, WP->main, WP->query_posts, WP_Query->query, WP_Query->get_posts
+[12-Sep-2015 19:30:42 UTC] WordPress database error Table 'rickdura_conspec1.wp_terms' doesn't exist for query SELECT SQL_CALC_FOUND_ROWS  9znmyg_posts.ID FROM 9znmyg_posts  WHERE 1=1  AND ((wp_posts.post_title LIKE '%vulkem%') OR (wp_posts.post_content LIKE '%vulkem%') OR EXISTS (
+                    SELECT * FROM wp_terms
+                    INNER JOIN wp_term_taxonomy
+                        ON wp_term_taxonomy.term_id = wp_terms.term_id
+                    INNER JOIN wp_term_relationships
+                        ON wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id
+                    WHERE (taxonomy = 'post_tag' OR taxonomy = 'product_tag')
+                        AND object_id = wp_posts.ID
+                        AND wp_terms.name LIKE '%vulkem%'
+                        )
+                    ) AND 9znmyg_posts.post_type IN ('post', 'page', 'attachment', 'product', 'portfolio') AND (9znmyg_posts.post_status = 'publish')  ORDER BY 9znmyg_posts.post_title LIKE '%vulkem%' DESC, 9znmyg_posts.post_date DESC LIMIT 0, 10 made by require('wp-blog-header.php'), wp, WP->main, WP->query_posts, WP_Query->query, WP_Query->get_posts
+[12-Sep-2015 20:20:53 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query DELETE FROM `9znmyg_options` WHERE `option_name` = 'rewrite_rules' made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('wp_loaded'), call_user_func_array, WP_Rewrite->flush_rules, delete_option
+[15-Sep-2015 10:58:08 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query DELETE FROM `9znmyg_options` WHERE `option_name` = 'rewrite_rules' made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('wp_loaded'), call_user_func_array, WP_Rewrite->flush_rules, delete_option
+[15-Sep-2015 10:58:08 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query DELETE FROM `9znmyg_options` WHERE `option_name` = 'rewrite_rules' made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('wp_loaded'), call_user_func_array, WP_Rewrite->flush_rules, delete_option
+[28-Sep-2015 17:05:23 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query DELETE FROM `9znmyg_options` WHERE `option_name` = 'rewrite_rules' made by require('wp-blog-header.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('wp_loaded'), call_user_func_array, WP_Rewrite->flush_rules, delete_option
+[28-Sep-2015 17:05:23 UTC] WordPress database error Deadlock found when trying to get lock; try restarting transaction for query DELETE FROM `9znmyg_options` WHERE `option_name` = 'rewrite_rules' made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('wp_loaded'), call_user_func_array, WP_Rewrite->flush_rules, delete_option

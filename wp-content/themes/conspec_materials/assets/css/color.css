@@ -1,0 +1,268 @@
+/* bootstrap */
+a {
+  color: #76abe8;
+}
+a:hover,
+a:focus {
+  color: #364a61;
+}
+.nav .current_page_ancestor a .caret,
+.nav .active a .caret,
+.nav .current_page_item a .caret,
+.nav a:hover .caret {
+  border-top-color: #76abe8;
+  border-bottom-color: #76abe8;
+}
+.navbar-nav > li.current_page_ancestor > a,
+.navbar-nav > li.active > a,
+.navbar-nav > li.current_page_item > a,
+.navbar-nav > li > a:hover{
+  color: #76abe8;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background-color: #76abe8;
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  background-color: #76abe8;
+}
+
+@media (min-width: 768px) {
+	.dropdown-menu > li > a {
+	  background: #76abe8;
+	}
+	.dropdown-menu > li > a:hover,
+	.dropdown-menu > li > a:focus {
+	  background-color: #364a61;
+	}
+	.dropdown-menu > .active > a,
+	.dropdown-menu > .active > a:hover,
+	.dropdown-menu > .active > a:focus {
+	  background-color: #364a61;
+	}
+}
+
+.btn-primary {
+    background: #ab2317 linear-gradient(#d72d1d, #ab2317) repeat scroll 0 0;
+    border: 1px solid #941f14;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+    font-size: 20px;
+    padding: 12px 25px;
+    border-color: #941f14;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-color: #76abe8;
+  border-color: #76abe8;
+}
+
+/* application */
+
+.thumb-menu-item a:hover img{
+	border-color: #76abe8;
+}
+.thumb-menu-item a:hover h5{
+	color: #76abe8;
+}
+@media (min-width: 768px) {
+	section .dropdown-submenu.active > a,
+	section .dropdown-submenu:hover > a{
+	  background-color: #76abe8;
+	}
+}
+.dropdown-menu section li.active a,
+.dropdown-menu section li a:focus,
+.dropdown-menu section li a:hover {
+  background-color: #76abe8;
+}
+
+@media (min-width: 768px) {
+	.none-type.dropdown-menu{
+	  background-color: #76abe8 !important;
+	}
+}
+
+.lpd_breadcrumb{
+	background: #364a61;
+}
+.lpd_breadcrumb a:focus,
+.lpd_breadcrumb a:hover{
+  color: #76abe8;
+}
+.tb-t h2{
+  color: #364a61;
+}
+
+.footer-menu li a:hover{
+	color: #76abe8;
+}
+.widget.widget_rss ul li a:hover,
+.widget.widget_pages ul li a:hover,
+.widget.widget_nav_menu ul li a:hover,
+.widget.widget_login ul li a:hover,
+.widget.widget_meta ul li a:hover,
+.widget.widget_categories ul li a:hover,
+.widget.widget_archive ul li a:hover,
+.widget.widget_recent_comments ul li a:hover,
+.widget.widget_recent_entries ul li a:hover{
+	color: #76abe8;
+}
+
+.search-meta .btn .halflings:before{
+	color: #76abe8;
+}
+
+.wpml-switcher .ws-title .halflings:before{
+	color: #76abe8;
+}
+.ws-dropdown ul li a:hover{
+	color: #76abe8;
+}
+.ws-dropdown{
+	background-color: #364a61;
+}
+.ws-dropdown:after {
+	border-bottom: 5px solid #364a61;
+}
+.blog-post-title a:hover{
+	color: #76abe8;
+}
+.single-post-meta a:hover,
+.blog-post-meta a:hover{
+	color: #76abe8;
+}
+
+.tagcloud a:hover,
+.tags a:hover{
+	border-color: #76abe8;
+	background-color: #76abe8;
+}
+
+.right-hm-menu li a:hover{
+	color: #76abe8;
+}
+.cart-bag{
+  background-color: #364a61;
+  border-color: #76abe8;
+}
+a:hover .cart-bag{
+  background-color: #76abe8;
+}
+.cart-bag-handle{
+  border-color: #76abe8;
+}
+
+.mega-icon{
+	background-color: #76abe8; 
+}
+.mega-icon:hover{
+	background-color: #364a61; 
+}
+.portfolio-item .title a:hover{
+	color: #76abe8;
+}
+.dropcap1{
+	background: #76abe8; 
+}
+.wpmtp-filter ul li.current a,
+.wpmtp-filter ul li a:hover{
+	border-color: #76abe8;
+	background-color: #76abe8;
+}
+
+
+/* Multi Purpose Media Boxes */
+
+.box:hover .box-caption .box-title{
+  color: #76abe8;
+}
+.category-navbar li.select a{
+  background-color: #76abe8;
+}
+.category-navbar li a:hover{
+  background-color: #364a61;
+}
+
+
+/* woocommerece */
+.wordpress-456industry .woocommerce table.cart .cart_table_item:hover img,
+.wordpress-456industry.woocommerce-page table.cart .cart_table_item:hover img{
+    border-color: #76abe8;
+}
+
+.wordpress-456industry .woocommerce table.cart a.remove:hover,
+.wordpress-456industry.woocommerce-page table.cart a.remove:hover{
+	background: #364a61;
+}
+
+.wordpress-456industry .woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
+.wordpress-456industry.woocommerce-page .widget_price_filter .ui-slider .ui-slider-handle{
+	background: #76abe8;
+	border: 1px solid #364a61;
+}
+.wordpress-456industry .woocommerce .widget_price_filter .ui-slider .ui-slider-handle:hover,
+.wordpress-456industry.woocommerce-page .widget_price_filter .ui-slider .ui-slider-handle:hover{
+	background: #364a61;
+}
+
+.woocommerce ul.cart_list li a:hover img,
+.woocommerce-page ul.cart_list li a:hover img,
+.woocommerce ul.product_list_widget li a:hover img,
+.woocommerce-page ul.product_list_widget li a:hover img{
+	border: 1px solid #76abe8;
+}
+
+.woocommerce ul.cart_list li a:hover,
+.woocommerce-page ul.cart_list li a:hover,
+.woocommerce ul.product_list_widget li a:hover,
+.woocommerce-page ul.product_list_widget li a:hover{
+	color: #76abe8 !important;
+}
+.product-category a:hover{
+	border-color: #76abe8;
+}
+ul.lpd-products li.product.product-category:hover .product-category-title{
+	background-color: #76abe8;
+}
+.product-item-thumb-wrap:hover{
+	border-color: #76abe8;
+}
+.product-item_btn.loading .glyphicons:before{
+	color: #76abe8 !important;
+}
+.product-item-thumb-wrap .product-item_btn{
+	color: #76abe8;
+	border-color: #76abe8;
+}
+.product-item-thumb-wrap .product-item_btn .glyphicons:before{
+	color: #76abe8;
+}
+.product-item-thumb-wrap .product-item_btn.add_to_cart_button.added,
+.product-item-thumb-wrap .product-item_btn:hover{
+	color: #364a61;
+	border-color: #364a61;
+}
+.product-item-thumb-wrap .product-item_btn.add_to_cart_button.added .glyphicons:before,
+.product-item-thumb-wrap .product-item_btn:hover .glyphicons:before{
+	color: #364a61;	
+}
+.wordpress-456industry.woocommerce-page div.product form.cart .group_table td.label a:hover{
+	color: #76abe8;
+}
+
+.wordpress-456industry.woocommerce-page .quantity .plus:hover,
+.wordpress-456industry.woocommerce-page #content .quantity .plus:hover,
+.wordpress-456industry.woocommerce-page .quantity .minus:hover,
+.wordpress-456industry.woocommerce-page #content .quantity .minus:hover{
+	background: #76abe8;
+}
+.wordpress-456industry .woocommerce .woocommerce-breadcrumb a:hover,
+.wordpress-456industry.woocommerce-page .woocommerce-breadcrumb a:hover{
+	color: #76abe8;
+}

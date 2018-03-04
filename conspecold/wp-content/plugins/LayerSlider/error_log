@@ -1,0 +1,16 @@
+[04-Jul-2014 16:25:12 America/Chicago] PHP Fatal error:  Call to undefined function wp_upload_dir() in /home3/bridge20/public_html/wp-content/plugins/LayerSlider/builder.php on line 4
+[04-Jul-2014 18:59:39 America/Chicago] PHP Fatal error:  Call to undefined function lsSliderById() in /home3/bridge20/public_html/wp-content/plugins/LayerSlider/edit.php on line 10
+[04-Jul-2014 20:51:34 America/Chicago] PHP Fatal error:  Call to undefined function get_option() in /home3/bridge20/public_html/wp-content/plugins/LayerSlider/add.php on line 5
+[05-Jul-2014 21:31:14 America/Chicago] PHP Fatal error:  Call to undefined function lsSliders() in /home3/bridge20/public_html/wp-content/plugins/LayerSlider/list.php on line 10
+[06-Jul-2014 02:13:22 America/Chicago] PHP Fatal error:  Call to undefined function layerslider_check_unit() in /home3/bridge20/public_html/wp-content/plugins/LayerSlider/init.php on line 7
+[06-Jul-2014 03:33:28 America/Chicago] PHP Fatal error:  Call to undefined function get_option() in /home3/bridge20/public_html/wp-content/plugins/LayerSlider/editor.php on line 26
+[06-Jul-2014 03:57:26 America/Chicago] PHP Fatal error:  Call to undefined function plugins_url() in /home3/bridge20/public_html/wp-content/plugins/LayerSlider/layerslider.php on line 22
+[06-Jul-2014 04:12:14 America/Chicago] PHP Fatal error:  Call to undefined function wp_upload_dir() in /home3/bridge20/public_html/wp-content/plugins/LayerSlider/style_editor.php on line 4
+[27-Jul-2014 20:22:38 America/Chicago] PHP Fatal error:  Call to undefined function lsSliders() in /home3/bridge20/public_html/wp-content/plugins/LayerSlider/list.php on line 10
+[27-Jul-2014 20:22:41 America/Chicago] PHP Fatal error:  Call to undefined function wp_upload_dir() in /home3/bridge20/public_html/wp-content/plugins/LayerSlider/builder.php on line 4
+[27-Jul-2014 20:22:48 America/Chicago] PHP Fatal error:  Call to undefined function layerslider_check_unit() in /home3/bridge20/public_html/wp-content/plugins/LayerSlider/init.php on line 7
+[27-Jul-2014 20:22:49 America/Chicago] PHP Fatal error:  Call to undefined function plugins_url() in /home3/bridge20/public_html/wp-content/plugins/LayerSlider/layerslider.php on line 22
+[27-Jul-2014 20:22:51 America/Chicago] PHP Fatal error:  Call to undefined function get_option() in /home3/bridge20/public_html/wp-content/plugins/LayerSlider/add.php on line 5
+[27-Jul-2014 20:22:53 America/Chicago] PHP Fatal error:  Call to undefined function lsSliderById() in /home3/bridge20/public_html/wp-content/plugins/LayerSlider/edit.php on line 10
+[27-Jul-2014 20:22:57 America/Chicago] PHP Fatal error:  Call to undefined function get_option() in /home3/bridge20/public_html/wp-content/plugins/LayerSlider/editor.php on line 26
+[27-Jul-2014 20:23:12 America/Chicago] PHP Fatal error:  Call to undefined function wp_upload_dir() in /home3/bridge20/public_html/wp-content/plugins/LayerSlider/style_editor.php on line 4

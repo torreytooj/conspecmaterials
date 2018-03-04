@@ -1,0 +1,7 @@
+[29-Nov-2016 10:43:28 America/Chicago] PHP Fatal error:  Call to undefined function _deprecated_file() in /home1/rickdurand/public_html/wp-includes/registration.php on line 7
+[29-Nov-2016 10:53:49 America/Chicago] PHP Fatal error:  Call to undefined function _deprecated_file() in /home1/rickdurand/public_html/wp-includes/registration.php on line 7
+[30-Dec-2016 08:05:05 America/Chicago] PHP Fatal error:  Call to undefined function _deprecated_file() in /home1/rickdurand/public_html/wp-includes/registration-functions.php on line 7
+[10-Jan-2017 05:46:34 America/Chicago] PHP Warning:  require(ABSPATHWPINC/option.php): failed to open stream: No such file or directory in /home1/rickdurand/public_html/wp-includes/functions.php on line 8
+[10-Jan-2017 05:46:35 America/Chicago] PHP Warning:  require(ABSPATHWPINC/option.php): failed to open stream: No such file or directory in /home1/rickdurand/public_html/wp-includes/functions.php on line 8
+[10-Jan-2017 05:46:35 America/Chicago] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/option.php' (include_path='.:/opt/php54/lib/php') in /home1/rickdurand/public_html/wp-includes/functions.php on line 8
+[25-Mar-2017 10:48:27 America/Chicago] PHP Fatal error:  Call to undefined function _deprecated_file() in /home1/rickdurand/public_html/wp-includes/registration-functions.php on line 7

@@ -1,0 +1,2 @@
+[27-Jul-2014 20:25:04 America/Chicago] PHP Fatal error:  Call to undefined function add_action() in /home3/bridge20/public_html/wp-content/plugins/at-logocarousel/includes/at-logocarousel-back.php on line 668
+[27-Jul-2014 20:25:28 America/Chicago] PHP Fatal error:  Call to undefined function add_shortcode() in /home3/bridge20/public_html/wp-content/plugins/at-logocarousel/includes/at-logocarousel-front.php on line 124

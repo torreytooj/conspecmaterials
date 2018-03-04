@@ -1,0 +1,11 @@
+@media (min-width: 1200px) {
+  .container {
+    max-width: 970px;
+  }
+	.boxed #header,
+	.boxed #title-breadcrumb,
+	.boxed #main,
+	.boxed #footer{
+		width: 1000px;
+	}	
+}

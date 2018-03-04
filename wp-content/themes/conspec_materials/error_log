@@ -1,0 +1,8 @@
+[23-Sep-2015 15:57:43 America/Chicago] PHP Fatal error:  Call to undefined function ot_get_option() in /home1/rickdurand/public_html/wp-content/themes/conspec_materials/index.php on line 1
+[20-May-2016 23:27:21 America/Chicago] PHP Fatal error:  Call to undefined function get_header() in /home1/rickdurand/public_html/wp-content/themes/conspec_materials/404.php on line 6
+[22-May-2016 23:26:17 America/Chicago] PHP Fatal error:  Call to undefined function get_header() in /home1/rickdurand/public_html/wp-content/themes/conspec_materials/404.php on line 6
+[25-May-2016 16:25:35 America/Chicago] PHP Fatal error:  Call to undefined function ot_get_option() in /home1/rickdurand/public_html/wp-content/themes/conspec_materials/index.php on line 1
+[10-Jan-2017 15:26:28 America/Chicago] PHP Fatal error:  Call to undefined function ot_get_option() in /home1/rickdurand/public_html/wp-content/themes/conspec_materials/index.php on line 1
+[10-Jan-2017 15:26:29 America/Chicago] PHP Fatal error:  Call to undefined function ot_get_option() in /home1/rickdurand/public_html/wp-content/themes/conspec_materials/index.php on line 1
+[17-Mar-2017 13:47:39 America/Chicago] PHP Fatal error:  Call to undefined function get_header() in /home1/rickdurand/public_html/wp-content/themes/conspec_materials/404.php on line 6
+[23-Mar-2017 13:24:57 America/Chicago] PHP Fatal error:  Call to undefined function get_header() in /home1/rickdurand/public_html/wp-content/themes/conspec_materials/404.php on line 6

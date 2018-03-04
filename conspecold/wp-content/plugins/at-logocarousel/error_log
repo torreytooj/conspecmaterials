@@ -1,0 +1,1 @@
+[27-Jul-2014 20:24:55 America/Chicago] PHP Fatal error:  Call to undefined function load_plugin_textdomain() in /home3/bridge20/public_html/wp-content/plugins/at-logocarousel/at-logocarousel.php on line 14

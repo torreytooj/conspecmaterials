@@ -1,0 +1,36 @@
+.wordpress-456industry .woocommerce .star-rating span:before,
+.wordpress-456industry.woocommerce-page .star-rating span:before,
+.wordpress-456industry .woocommerce .star-rating:before,
+.wordpress-456industry.woocommerce-page .star-rating:before{
+	display: none;
+}
+.wordpress-456industry .woocommerce .star-rating,
+.wordpress-456industry.woocommerce-page .star-rating{
+	font-family: inherit;
+	line-height: inherit;
+	font-size: inherit;
+	height: 5px;
+	width: 214px;
+	background: url(../img/rating.png) 0 0 no-repeat;
+}
+.wordpress-456industry .woocommerce .star-rating span,
+.wordpress-456industry.woocommerce-page .star-rating span{
+	background: url(../img/rating.png) 0 -5px no-repeat;
+	padding-top: 0;
+}
+.wordpress-456industry.woocommerce-page .shop-navigation .star-rating{
+	margin: 7px 0;
+}
+.wordpress-456industry .col-md-9 .woocommerce .col-md-3 .star-rating,
+.wordpress-456industry.woocommerce-page .col-md-9 .col-md-3 .star-rating,
+.wordpress-456industry .woocommerce.widget .star-rating,
+.wordpress-456industry.woocommerce-page  .widget .star-rating{
+	width: 164px;
+	background: url(../img/rating-widget.png) 0 0 no-repeat;
+}
+.wordpress-456industry .col-md-9 .woocommerce .col-md-3 .star-rating span,
+.wordpress-456industry.woocommerce-page .col-md-9 .col-md-3 .star-rating span,
+.wordpress-456industry .woocommerce.widget .star-rating span,
+.wordpress-456industry.woocommerce-page  .widget .star-rating span{
+	background: url(../img/rating-widget.png) 0 -5px no-repeat;
+}

@@ -1,0 +1,2 @@
+[27-Jul-2014 20:24:36 America/Chicago] PHP Fatal error:  Call to undefined function add_action() in /home3/bridge20/public_html/wp-content/plugins/ajax-autosuggest/resize.php on line 352
+[27-Jul-2014 20:24:44 America/Chicago] PHP Fatal error:  Call to undefined function plugin_basename() in /home3/bridge20/public_html/wp-content/plugins/ajax-autosuggest/ajax-autosuggest.php on line 32

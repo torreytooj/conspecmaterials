@@ -1,0 +1,93 @@
+.wpb_vc_lpd_products .wpb_element_wrapper,
+.wpb_vc_lpd_product_categories .wpb_element_wrapper,
+.wpb_vc_lpd_product_category .wpb_element_wrapper,
+.wpb_vc_lpd_recent_products .wpb_element_wrapper,
+.wpb_vc_lpd_featured_products .wpb_element_wrapper,
+.wpb_vc_multi_module .wpb_element_wrapper,
+.wpb_vc_meta_container .wpb_element_wrapper,
+.wpb_vc_new_module .wpb_element_wrapper,
+.wpb_vc_callout2 .wpb_element_wrapper,
+.wpb_vc_testimonial .wpb_element_wrapper,
+.wpb_vc_add_shortcode .wpb_element_wrapper,
+.wpb_vc_cube_widget .wpb_element_wrapper,
+.wpb_vc_colio_widget .wpb_element_wrapper,
+.wpb_vc_multi_slider .wpb_element_wrapper,
+.wpb_vc_counter .wpb_element_wrapper,
+.wpb_vc_parallax_counter .wpb_element_wrapper,
+.wpb_vc_divider .wpb_element_wrapper,
+.wpb_vc_module .wpb_element_wrapper,
+.wpb_vc_featured_module_1 .wpb_element_wrapper,
+.wpb_vc_featured_module_2 .wpb_element_wrapper,
+.wpb_vc_featured_module_3 .wpb_element_wrapper,
+.wpb_vc_widget .wpb_element_wrapper,
+.wpb_vc_meta_block .wpb_element_wrapper,
+.wpb_vc_iconitem .wpb_element_wrapper,
+.wpb_vc_blockquote .wpb_element_wrapper,
+.wpb_vc_new_button .wpb_element_wrapper,
+.wpb_vc_new_callout .wpb_element_wrapper{
+	background: url(vc_extend_lpd-logo.png) white no-repeat 15px 10px;
+}
+.wpb_vc_lpd_products .wpb_element_wrapper div,
+.wpb_vc_lpd_product_categories .wpb_element_wrapper div,
+.wpb_vc_lpd_product_category .wpb_element_wrapper div,
+.wpb_vc_lpd_recent_products .wpb_element_wrapper div,
+.wpb_vc_lpd_featured_products .wpb_element_wrapper div,
+.wpb_vc_multi_module .wpb_element_wrapper div,
+.wpb_vc_meta_container .wpb_element_wrapper div,
+.wpb_vc_new_module .wpb_element_wrapper div,
+.wpb_vc_callout2 .wpb_element_wrapper div,
+.wpb_vc_testimonial .wpb_element_wrapper div,
+.wpb_vc_cube_widget .wpb_element_wrapper div,
+.wpb_vc_colio_widget .wpb_element_wrapper div,
+.wpb_vc_multi_slider .wpb_element_wrapper div,
+.wpb_vc_counter .wpb_element_wrapper div,
+.wpb_vc_parallax_counter .wpb_element_wrapper div,
+.wpb_vc_divider .wpb_element_wrapper div,
+.wpb_vc_module .wpb_element_wrapper div,
+.wpb_vc_featured_module_1 .wpb_element_wrapper div,
+.wpb_vc_featured_module_2 .wpb_element_wrapper div,
+.wpb_vc_featured_module_3 .wpb_element_wrapper div,
+.wpb_vc_widget .wpb_element_wrapper div,
+.wpb_vc_meta_block .wpb_element_wrapper div,
+.wpb_vc_iconitem .wpb_element_wrapper div,
+.wpb_vc_blockquote .wpb_element_wrapper div,
+.wpb_vc_new_button .wpb_element_wrapper div,
+.wpb_vc_new_callout .wpb_element_wrapper div{
+	display: none;
+}
+.wpb_vc_new_module .wpb_element_wrapper div.title,
+.wpb_vc_callout2 .wpb_element_wrapper div.title,
+.wpb_vc_testimonial .wpb_element_wrapper div.title,
+.wpb_vc_module .wpb_element_wrapper div.title,
+.wpb_vc_featured_module_1 .wpb_element_wrapper div.title,
+.wpb_vc_featured_module_2 .wpb_element_wrapper div.title,
+.wpb_vc_featured_module_3 .wpb_element_wrapper div.title,
+.wpb_vc_widget .wpb_element_wrapper div.title,
+.wpb_vc_meta_block .wpb_element_wrapper div.title,
+.wpb_vc_iconitem .wpb_element_wrapper div.title,
+.wpb_vc_blockquote .wpb_element_wrapper div.cite,
+.wpb_vc_new_button .wpb_element_wrapper div.text,
+.wpb_vc_new_callout .wpb_element_wrapper div.title{
+	display: block;
+}
+.wpb_bootstrap_modals .icon-wpb-lpd{
+	background: url(vc_extend_lpd-logo.png) no-repeat center;
+}
+.wpb_recent_products .wpb_element_wrapper,
+.wpb_featured_products .wpb_element_wrapper,
+.wpb_product_category .wpb_element_wrapper,
+.wpb_product_categories .wpb_element_wrapper,
+.wpb_products .wpb_element_wrapper,
+.wpb_product .wpb_element_wrapper{
+	background: url(vc-woo-icon.png) white no-repeat 15px 10px;
+}
+.wpb_bootstrap_modals .icon-wpb-woocom{
+	background: url(vc-woo-icon.png) no-repeat center;
+}
+.wpb_element_wrapper .textarea{
+    border: none;
+    font-family: inherit;
+    line-height: inherit;
+    padding: 0;
+    width: auto;
+}

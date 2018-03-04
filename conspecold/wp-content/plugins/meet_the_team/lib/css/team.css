@@ -1,0 +1,604 @@
+/*
+ * Meet the Team Css
+ * June 23, 3013
+ */
+/*
+* Font
+*/
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("../font/fontawesome-webfont.eot?v=3.2.1");
+  src: url("../font/fontawesome-webfont.eot?#iefix&v=3.2.1") format("embedded-opentype"), url("../font/fontawesome-webfont.woff?v=3.2.1") format("woff"), url("../font/fontawesome-webfont.ttf?v=3.2.1") format("truetype"), url("../font/fontawesome-webfont.svg#fontawesomeregular?v=3.2.1") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* FONT AWESOME CORE
+ * -------------------------- */
+/* line 23, ../scss/team.scss */
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+  *margin-right: .3em;
+}
+
+/* line 32, ../scss/team.scss */
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  text-decoration: inherit;
+  speak: none;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+
+/* makes sure icons active on rollover in links */
+/* line 40, ../scss/team.scss */
+a [class^="icon-"],
+a [class*=" icon-"] {
+  display: inline;
+}
+
+/*
+* Reset
+*/
+/* line 58, ../scss/team.scss */
+#wpmtp-wrapper,
+#wpmtp-wrapper ul.wpmtp-grid,
+#wpmtp-wrapper li.wpmtp-column,
+#wpmtp-wrapper .wpmtp-post-image img,
+#wpmtp-wrapper h3.wpmtp-post-title,
+#wpmtp-wrapper h3.wpmtp-post-title a,
+#wpmtp-wrapper h5.wpmtp-position,
+#wpmtp-wrapper ul.wpmtp-social,
+#wpmtp-wrapper ul.wpmtp-social li,
+#wpmtp-wrapper ul.wpmtp-social li a,
+#wpmtp-single-wrap label,
+#wpmtp-single-wrap li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  text-transform: none;
+  background-color: transparent;
+  background-image: none;
+}
+
+/* line 75, ../scss/team.scss */
+body.single-team .entry-header img.wp-post-image {
+  display: none;
+}
+
+/*
+ * @mixins
+ */
+/*
+ * Wrapper
+ */
+/* line 100, ../scss/team.scss */
+#wpmtp-wrapper {
+  width: 100%;
+  display: block;
+  clear: both;
+  position: relative;
+}
+/* line 104, ../scss/team.scss */
+#wpmtp-wrapper ul {
+  list-style-type: none;
+}
+/* line 107, ../scss/team.scss */
+#wpmtp-wrapper .wpmtp-more {
+  text-decoration: none;
+}
+
+/* line 111, ../scss/team.scss */
+.wpmtp-clearfix {
+  width: 100%;
+  display: block;
+  clear: both;
+}
+
+/*
+* Grid and Columns
+*/
+/* line 118, ../scss/team.scss */
+#wpmtp-wrapper {
+  /* Global */
+  /* Two Column */
+  /* Three Column */
+  /* Four Column */
+  /* Five Column */
+  /* Six Column */
+  /* Seven Column */
+  /* Eight Column */
+  /* Nine Column */
+  /* Ten Column */
+  /* Eleven Column */
+  /* Twelve Column */
+}
+/* line 120, ../scss/team.scss */
+#wpmtp-wrapper.wpmtp-center .wpmtp-copy {
+  text-align: center;
+}
+/* line 123, ../scss/team.scss */
+#wpmtp-wrapper.wpmtp-left .wpmtp-copy, #wpmtp-wrapper.wpmtp-right .wpmtp-copy {
+  text-align: left;
+}
+/* line 126, ../scss/team.scss */
+#wpmtp-wrapper.wpmtp-justify .wpmtp-copy {
+  text-align: justify;
+}
+/* line 129, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-grid, #wpmtp-wrapper ul.wpmtp-carousel, #wpmtp-wrapper ul.wpmtp-filterable {
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+/* line 133, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-grid .wpmtp-column, #wpmtp-wrapper ul.wpmtp-carousel .wpmtp-column, #wpmtp-wrapper ul.wpmtp-filterable .wpmtp-column {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  width: 100%;
+  text-align: center;
+  vertical-align: top;
+  margin-bottom: 30px;
+}
+/* line 144, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-two-columns .wpmtp-column {
+  width: 48%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 30px;
+}
+/* line 150, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-three-columns .wpmtp-column {
+  width: 31.33333%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 30px;
+}
+/* line 156, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-four-columns .wpmtp-column {
+  width: 23%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 30px;
+}
+/* line 162, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-five-columns .wpmtp-column {
+  width: 18%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 30px;
+}
+/* line 168, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-six-columns .wpmtp-column {
+  width: 14.66667%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 30px;
+}
+/* line 174, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-seven-columns .wpmtp-column {
+  width: 12.28571%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 30px;
+}
+/* line 180, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-eight-columns .wpmtp-column {
+  width: 10.5%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 30px;
+}
+/* line 186, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-nine-columns .wpmtp-column {
+  width: 9.11111%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 30px;
+}
+/* line 192, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-ten-columns .wpmtp-column {
+  width: 8%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 30px;
+}
+/* line 198, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-eleven-columns .wpmtp-column {
+  width: 7.09091%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 30px;
+}
+/* line 204, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-twelve-columns .wpmtp-column {
+  width: 6.33333%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 30px;
+}
+@media (max-width: 767px) {
+  /* line 212, ../scss/team.scss */
+  #wpmtp-wrapper ul.wpmtp-two-columns .wpmtp-column, #wpmtp-wrapper ul.wpmtp-three-columns .wpmtp-column, #wpmtp-wrapper ul.wpmtp-four-columns .wpmtp-column, #wpmtp-wrapper ul.wpmtp-five-columns .wpmtp-column, #wpmtp-wrapper ul.wpmtp-six-columns .wpmtp-column,
+  #wpmtp-wrapper ul.wpmtp-seven-columns .wpmtp-column, #wpmtp-wrapper ul.wpmtp-eight-columns .wpmtp-column, #wpmtp-wrapper ul.wpmtp-nine-columns .wpmtp-column, #wpmtp-wrapper ul.wpmtp-ten-columns .wpmtp-column,
+  #wpmtp-wrapper ul.wpmtp-eleven-columns .wpmtp-column, #wpmtp-wrapper ul.wpmtp-twelve-columns .wpmtp-column {
+    width: 48%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 480px) {
+  /* line 217, ../scss/team.scss */
+  #wpmtp-wrapper ul.wpmtp-two-columns .wpmtp-column, #wpmtp-wrapper ul.wpmtp-three-columns .wpmtp-column, #wpmtp-wrapper ul.wpmtp-four-columns .wpmtp-column, #wpmtp-wrapper ul.wpmtp-five-columns .wpmtp-column, #wpmtp-wrapper ul.wpmtp-six-columns .wpmtp-column,
+  #wpmtp-wrapper ul.wpmtp-seven-columns .wpmtp-column, #wpmtp-wrapper ul.wpmtp-eight-columns .wpmtp-column, #wpmtp-wrapper ul.wpmtp-nine-columns .wpmtp-column, #wpmtp-wrapper ul.wpmtp-ten-columns .wpmtp-column,
+  #wpmtp-wrapper ul.wpmtp-eleven-columns .wpmtp-column, #wpmtp-wrapper ul.wpmtp-twelve-columns .wpmtp-column {
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 30px;
+  }
+}
+
+/*
+ * Inner
+ */
+/* line 229, ../scss/team.scss */
+#wpmtp-wrapper h3.wpmtp-post-title {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+/* line 233, ../scss/team.scss */
+#wpmtp-wrapper h5.wpmtp-position {
+  margin-bottom: 15px;
+}
+/* line 236, ../scss/team.scss */
+#wpmtp-wrapper .wpmtp-post-image {
+  max-width: 100%;
+  margin: 0 auto 10px;
+  overflow: hidden;
+  display: block;
+  position: relative;
+}
+/* line 242, ../scss/team.scss */
+#wpmtp-wrapper .wpmtp-post-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* line 248, ../scss/team.scss */
+span.wpmtp-job-title {
+  display: block;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* line 255, ../scss/team.scss */
+#wpmtp-single-wrap .wpmtp-vcard-left {
+  float: left;
+  margin-right: 25px;
+}
+/* line 259, ../scss/team.scss */
+#wpmtp-single-wrap .wpmtp-meta {
+  display: block;
+}
+/* line 262, ../scss/team.scss */
+#wpmtp-single-wrap .wpmtp-meta label {
+  font-weight: bold;
+}
+/* line 266, ../scss/team.scss */
+#wpmtp-single-wrap #wpmtp-single-content {
+  display: block;
+  margin-top: 15px;
+}
+
+/*
+ * Alignment
+ */
+/* line 276, ../scss/team.scss */
+#wpmtp-wrapper.wpmtp-center {
+  text-align: center;
+}
+/* line 279, ../scss/team.scss */
+#wpmtp-wrapper.wpmtp-center .copy {
+  text-align: center;
+}
+/* line 284, ../scss/team.scss */
+#wpmtp-wrapper.wpmtp-left .copy {
+  text-align: left;
+}
+/* line 289, ../scss/team.scss */
+#wpmtp-wrapper.wpmtp-right .copy {
+  text-align: right;
+}
+
+/*
+ * Socials
+ */
+/* line 299, ../scss/team.scss */
+#wpmtp-wrapper .wpmtp-social-hover, #wpmtp-single-wrap .wpmtp-social-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  width: 100%;
+  height: 100%;
+  vertical-align: center;
+  background: rgba(0, 0, 0, 0.8);
+  padding-top: 40%;
+  overflow: hidden;
+  display: none;
+}
+/* line 312, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social, #wpmtp-single-wrap ul.wpmtp-social {
+  width: 100%;
+  display: block;
+  clear: both;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+/* line 317, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social li, #wpmtp-single-wrap ul.wpmtp-social li {
+  display: inline;
+  margin: 0 5px;
+}
+/* line 321, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social li a, #wpmtp-single-wrap ul.wpmtp-social li a {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+/* line 329, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social li a i, #wpmtp-single-wrap ul.wpmtp-social li a i {
+  font-size: 19px;
+  color: #fff;
+  line-height: 32px;
+}
+/* line 335, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social li a .icon-envelope:before, #wpmtp-single-wrap ul.wpmtp-social li a .icon-envelope:before {
+  content: "\f0e0";
+}
+/* line 338, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social li a .icon-suitcase:before, #wpmtp-single-wrap ul.wpmtp-social li a .icon-suitcase:before {
+  content: "\f0f2";
+}
+/* line 341, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social li a .icon-facebook:before, #wpmtp-single-wrap ul.wpmtp-social li a .icon-facebook:before {
+  content: "\f09a";
+}
+/* line 344, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social li a .icon-twitter:before, #wpmtp-single-wrap ul.wpmtp-social li a .icon-twitter:before {
+  content: "\f099";
+}
+/* line 347, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social li a .icon-linkedin:before, #wpmtp-single-wrap ul.wpmtp-social li a .icon-linkedin:before {
+  content: "\f0e1";
+}
+/* line 350, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social li a .icon-gplus:before, #wpmtp-single-wrap ul.wpmtp-social li a .icon-gplus:before {
+  content: "\f0d5";
+}
+/* line 353, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social li a .icon-youtube:before, #wpmtp-single-wrap ul.wpmtp-social li a .icon-youtube:before {
+  content: "\f167";
+}
+/* line 356, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social li a .icon-pinterest:before, #wpmtp-single-wrap ul.wpmtp-social li a .icon-pinterest:before {
+  content: "\f0d2";
+}
+/* line 359, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social li a .icon-github:before, #wpmtp-single-wrap ul.wpmtp-social li a .icon-github:before {
+  content: "\f09b";
+}
+/* line 362, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social li a .icon-flickr:before, #wpmtp-single-wrap ul.wpmtp-social li a .icon-flickr:before {
+  content: "\f16e";
+}
+/* line 365, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social li a .icon-instagram:before, #wpmtp-single-wrap ul.wpmtp-social li a .icon-instagram:before {
+  content: "\f16d";
+}
+/* line 368, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social li a .icon-dribbble:before, #wpmtp-single-wrap ul.wpmtp-social li a .icon-dribbble:before {
+  content: "\f17d";
+}
+/* line 371, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social li a .icon-tumblr:before, #wpmtp-single-wrap ul.wpmtp-social li a .icon-tumblr:before {
+  content: "\f173";
+}
+/* line 374, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social li a .icon-skype:before, #wpmtp-single-wrap ul.wpmtp-social li a .icon-skype:before {
+  content: "\f17e";
+}
+/* line 383, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-colored li a, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-colored li a {
+  font-family: FontAwesome;
+}
+/* line 386, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-envelope, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-envelope {
+  background: #333333;
+}
+/* line 389, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-suitcase, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-suitcase {
+  background: #21759B;
+}
+/* line 392, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-facebook, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-facebook {
+  background: #3B5998;
+}
+/* line 395, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-twitter, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-twitter {
+  background: #00ACED;
+}
+/* line 398, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-linkedin, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-linkedin {
+  background: #007FB1;
+}
+/* line 401, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-gplus, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-gplus {
+  background: #D14836;
+}
+/* line 404, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-youtube, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-youtube {
+  background: #CD332D;
+}
+/* line 407, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-pinterest, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-pinterest {
+  background: #CB2027;
+}
+/* line 410, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-github, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-github {
+  background: #4183C4;
+}
+/* line 413, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-flickr, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-flickr {
+  background: #0063DB;
+}
+/* line 416, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-instagram, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-instagram {
+  background: #3F729B;
+}
+/* line 419, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-dribbble, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-dribbble {
+  background: #EA4C89;
+}
+/* line 422, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-tumblr, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-tumblr {
+  background: #2C4762;
+}
+/* line 425, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-skype, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-colored li a.wpmtp-skype {
+  background: #00AFF0;
+}
+/* line 433, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-dark li, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-dark li {
+  margin: 0px;
+}
+/* line 435, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-dark li a, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-dark li a {
+  font-family: FontAwesome;
+}
+/* line 438, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-dark li a i, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-dark li a i {
+  color: #555;
+}
+/* line 446, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-light li, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-light li {
+  margin: 0px;
+}
+/* line 448, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-light li a, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-light li a {
+  font-family: FontAwesome;
+}
+/* line 451, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-light li a i, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-light li a i {
+  color: #fff;
+}
+/* line 460, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-social-text li a, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-social-text li a {
+  width: auto;
+  text-decoration: none;
+}
+/* line 470, ../scss/team.scss */
+#wpmtp-wrapper ul.wpmtp-social.wpmtp-shape-rounded li a, #wpmtp-single-wrap ul.wpmtp-social.wpmtp-shape-rounded li a {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+
+/* line 477, ../scss/team.scss */
+#wpmtp-single-wrap ul.wpmtp-social {
+  width: auto;
+  clear: none;
+}
+/* line 481, ../scss/team.scss */
+#wpmtp-single-wrap .wpmtp-meta-socials {
+  padding-top: 8px;
+}
+
+/*
+ * Carousel
+ */
+/* line 491, ../scss/team.scss */
+#wpmtp-wrapper .caroufredsel_wrapper .wpmtp-carousel .wpmtp-column {
+  padding: 0px 20px;
+  margin: 0px;
+}
+/* line 497, ../scss/team.scss */
+#wpmtp-wrapper .wpmtp-pager {
+  font-family: FontAwesome;
+  font-size: 16px;
+  float: right;
+  margin: 12px 0px;
+}
+/* line 503, ../scss/team.scss */
+#wpmtp-wrapper .wpmtp-pager a {
+  text-decoration: none;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  background-color: #F9F9F9;
+  text-align: center;
+  padding: 5px 15px;
+  border-bottom: 2px solid #e5e5e5;
+  color: #666;
+}
+/* line 512, ../scss/team.scss */
+#wpmtp-wrapper .wpmtp-pager a:hover {
+  background-color: #e5e5e5;
+}
+/* line 516, ../scss/team.scss */
+#wpmtp-wrapper .wpmtp-pager .icon-angle-left:before {
+  content: "\f104";
+}
+/* line 519, ../scss/team.scss */
+#wpmtp-wrapper .wpmtp-pager .icon-angle-right:before {
+  content: "\f105";
+}
+
+/*
+ * Filterable
+ */
+/* line 530, ../scss/team.scss */
+#wpmtp-wrapper .wpmtp-filter li {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin-right: 10px;
+  margin-left: 0px;
+}
