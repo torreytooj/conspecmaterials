@@ -88,3 +88,42 @@ h3.lcs_logo_title:hover {
 #lcs_logo_carousel_slider .owl-controls .owl-page span { 
     background: #666666!important; 
 }
+#lcs_logo_carousel_wrapper{
+    position: relative;
+    background: transparent;
+}
+.slider_navigation {
+    position: absolute;
+    /*top: calc(45%)
+    */
+    top:-28px;
+    right:5px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    /*width: 100%;*/
+    width: auto;
+    z-index: 999;
+}
+.slider_navigation span.prev {
+    right: 32px;
+}
+.slider_navigation span {
+    line-height: 28px;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    width: 28px;
+    height: 28px;
+    background: #C9C9C9;
+    cursor: pointer;
+    position: absolute;
+    /* top: 50%; */
+    /* -webkit-transform: translateY(-50%); */
+    /* -ms-transform: translateY(-50%); */
+    /* transform: translateY(-50%); */
+    z-index: 999;
+}
+.slider_navigation span.next{
+    right: 0;
+}

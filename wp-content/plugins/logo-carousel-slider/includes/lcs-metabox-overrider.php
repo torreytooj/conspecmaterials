@@ -3,17 +3,17 @@
 /**
  * Protect direct access
  */
-if ( ! defined( 'ABSPATH' ) ) die( LCS_HACK_MSG );
+if ( ! defined( 'ABSPATH' ) ) die( 'Accessing this file directly is denied.' );
 
 /**
- * Featured_Image_Metabox_Customizer
+ * LCP_Featured_Img_Customizer
  *
  * A class to help override the Featured Image Metabox
  */
 
-if ( !class_exists( 'Featured_Image_Metabox_Customizer' ) ) {
+if ( !class_exists( 'LCP_Featured_Img_Customizer' ) ) {
 
-	class Featured_Image_Metabox_Customizer {
+	class LCP_Featured_Img_Customizer {
 
 		protected $post_type;
 		protected $metabox_title;
@@ -21,14 +21,14 @@ if ( !class_exists( 'Featured_Image_Metabox_Customizer' ) ) {
 		protected $remove_text;
 
 		function __construct($args = array()) {
-			if ( !empty($args) ) {
-				$this->post_type     = $args['post_type'];
-				$this->metabox_title = $args['metabox_title'];
-				$this->set_text      = $args['set_text'];
-				$this->remove_text   = $args['remove_text'];
-			}
 
-			if ( isset($this->post_type) ) {
+				$this->post_type     = !empty($args['post_type']) ? $args['post_type'] : '';
+				$this->metabox_title = !empty($args['metabox_title'])? $args['metabox_title'] : __('Featured Image', LCS_TEXTDOMAIN);
+				$this->set_text      = !empty($args['set_text'])? $args['set_text'] : __('Set Featured Image', LCS_TEXTDOMAIN);
+				$this->remove_text   = !empty($args['remove_text'])? $args['remove_text'] : __('Remove Featured Image', LCS_TEXTDOMAIN);
+
+
+			if ( !empty($this->post_type) ) {
 				add_action( 'add_meta_boxes', array($this, 'change_featured_image_metabox_title') );
 				add_filter( 'admin_post_thumbnail_html', array($this, 'change_featured_image_metabox_content') );
 				add_filter( 'media_view_strings', array($this, 'change_featured_image_media_strings'), 10, 2 );
@@ -95,8 +95,8 @@ if ( !class_exists( 'Featured_Image_Metabox_Customizer' ) ) {
 		 */
 		function change_featured_image_metabox_content($content) {
 			if ( $this->get_featured_image_metabox_post_type() === $this->post_type ) {
-				$content = str_replace( __( 'Set featured image' ), $this->set_text, $content );
-				$content = str_replace( __( 'Remove featured image' ), $this->remove_text, $content );
+				$content = str_replace(  'Set featured image' , $this->set_text, $content );
+				$content = str_replace(  'Remove featured image' , $this->remove_text, $content );
 			}
 
 			return $content;
@@ -128,9 +128,3 @@ if ( !class_exists( 'Featured_Image_Metabox_Customizer' ) ) {
 	}
 }
 
-new Featured_Image_Metabox_Customizer(array(
-	'post_type'     => 'logocarousel',
-	'metabox_title' => __( 'Logo', 'feat-img-custom' ),
-	'set_text'      => __( 'Set logo', 'feat-img-custom' ),
-	'remove_text'   => __( 'Remove logo', 'feat-img-custom' )
-));

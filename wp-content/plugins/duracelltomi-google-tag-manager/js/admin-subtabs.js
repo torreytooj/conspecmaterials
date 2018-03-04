@@ -12,7 +12,7 @@ var adminsubtabs = {
     },
     "visitor": {
       tabtext: gtm4wp.visitortabtitle,
-      numitems: 4
+      numitems: 5
     },
     "adwords": {
       tabtext: gtm4wp.adwordstabtitle,
@@ -64,6 +64,10 @@ var adminsubtabs = {
     "int-wc": {
       tabtext: gtm4wp.wctabtitle,
       numitems: 6
+    },
+    "int-google-optimize": {
+      tabtext: gtm4wp.gotabtitle,
+      numitems: 2
     }
   }
 };

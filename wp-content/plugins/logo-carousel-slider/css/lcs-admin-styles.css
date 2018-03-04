@@ -50,7 +50,7 @@ input.lcs-text-input {
 }
 
 i.lcs_pro_ver_notice {
-    display: none;
+    display: inline;
     margin: 0;
     padding: 0;
 }
@@ -59,9 +59,9 @@ i.lcs_pro_ver_notice {
     display: none;
 }
 
-#lcs_slider_settings .form-table, #lcs_style_settings .form-table {
+/*#lcs_slider_settings .form-table, #lcs_style_settings .form-table {
     opacity: 0.3;
-}
+}*/
 
 #lcs_slider_settings p.lcs_pro_notice, #lcs_style_settings p.lcs_pro_notice {
     font-size: 16px;
@@ -111,17 +111,113 @@ i.lcs_pro_ver_notice {
 .lcs-upgrade-content-wrapper p {
     font-size: 14px;
     line-height: 27px;
-    font-weight: bold;
 }
 
 .lcs-upgrade-content-wrapper li {
-    margin-bottom: 12px;
+    margin-bottom: 25px;
 }
 
 .lcs_settings_page .metabox-holder { 
     padding: 0 7px; 
 }
 
-.lcs-upgrade-content-wrapper h3 {
-    font-size: 15px;
+/*.lcs-upgrade-content-wrapper h3 {*/
+    /*font-size: 15px;*/
+/*}*/
+
+span.lcs_new_feature {
+    background: #0085ba;
+    color: #ffffff;
+    padding: 2px 4px;
+    font-size: 75%;
+    border-radius: 2px;
 }
+
+
+/* style for lcs support page*/
+.lcs_support_wrapper{
+    margin-top: 20px;
+}
+
+.lcs_support_wrapper .wrap{
+    float: left;
+    margin-right: 20px;
+}
+
+.lcs_support_wrapper .wrap.wrap_left {
+    width: calc(100% - 350px);
+}
+
+.lcs_support_wrapper .wrap.wrap_left .postbox h2{
+    margin: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ededed;
+}
+
+.lcs_support_wrapper .wrap.wrap_right {
+    width: 300px;
+}
+
+.lcs_support_wrapper .wrap.wrap_right .text-center{
+    text-align: center;
+}
+
+.lcs_support_wrapper .wrap.wrap_right .postbox{
+    background: #f0f9dc;
+    padding: 0 0 10px;
+}
+
+.lcs_pro_features li{
+    font-size: 13px;
+    line-height: 22px;
+    color: #333;
+    position: relative;
+    margin-bottom: 6px;
+}
+.lcs_pro_features li:before{
+    content: "\f522";
+    font-family: 'dashicons', san-serif;
+    margin-right: 4px;
+    display: inline-block;
+    vertical-align: -1.9px;
+}
+.lcs-upgrade-content-wrapper-right h3 {    
+    font-size: 15px;
+    font-weight: normal;
+    color: #ffffff;
+    background: #0085ba;
+    text-align: center;
+    padding: 12px 0;
+    margin: 0;
+}
+
+ul.lcs_pro_features {
+    padding: 0 23px;
+}
+
+/*Promotion Hacks on settings screen*/
+/*
+#lcs_general_settings tbody > tr:nth-child(3),
+#lcs_general_settings tbody > tr:nth-child(5) {
+    opacity:.5;
+}
+#lcs_general_settings tbody > tr:nth-child(3) td,
+#lcs_general_settings tbody > tr:nth-child(5) td {
+    margin-top: 0 ;
+    padding-top: 0;
+    line-height: 0;
+}
+#lcs_general_settings tbody > tr:nth-child(2) td,
+#lcs_general_settings tbody > tr:nth-child(4) td{
+    margin-bottom: 0 ;
+    padding-bottom: 0;
+    line-height: 0;
+}
+.lcs_pro_promo {
+    display: inline;
+    font-weight: bold;
+    background: #ffffff;
+    margin-left: -21px;
+    z-index: 999999;
+    position: absolute;
+}*/

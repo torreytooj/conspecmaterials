@@ -23,3 +23,108 @@
 12-02-2016 @ 15:22:20 - Running wc_update_260_db_version callback
 12-02-2016 @ 15:22:20 - Finished wc_update_260_db_version callback
 12-02-2016 @ 15:22:20 - Data update complete
+03-01-2018 @ 21:27:33 - Queuing 2.5.0 - wc_update_250_currency
+03-01-2018 @ 21:27:33 - Queuing 2.5.0 - wc_update_250_db_version
+03-01-2018 @ 21:27:33 - Queuing 2.6.0 - wc_update_260_options
+03-01-2018 @ 21:27:33 - Queuing 2.6.0 - wc_update_260_termmeta
+03-01-2018 @ 21:27:33 - Queuing 2.6.0 - wc_update_260_zones
+03-01-2018 @ 21:27:33 - Queuing 2.6.0 - wc_update_260_zone_methods
+03-01-2018 @ 21:27:33 - Queuing 2.6.0 - wc_update_260_refunds
+03-01-2018 @ 21:27:33 - Queuing 2.6.0 - wc_update_260_db_version
+03-01-2018 @ 21:27:35 - Running wc_update_250_currency callback
+03-01-2018 @ 21:27:35 - Finished wc_update_250_currency callback
+03-01-2018 @ 21:27:35 - Running wc_update_250_db_version callback
+03-01-2018 @ 21:27:35 - Finished wc_update_250_db_version callback
+03-01-2018 @ 21:27:35 - Running wc_update_260_options callback
+03-01-2018 @ 21:27:35 - Finished wc_update_260_options callback
+03-01-2018 @ 21:27:35 - Running wc_update_260_termmeta callback
+03-01-2018 @ 21:27:37 - Finished wc_update_260_termmeta callback
+03-01-2018 @ 21:27:37 - Running wc_update_260_zones callback
+03-01-2018 @ 21:27:37 - Finished wc_update_260_zones callback
+03-01-2018 @ 21:27:37 - Running wc_update_260_zone_methods callback
+03-01-2018 @ 21:27:37 - Finished wc_update_260_zone_methods callback
+03-01-2018 @ 21:27:37 - Running wc_update_260_refunds callback
+03-01-2018 @ 21:27:37 - Finished wc_update_260_refunds callback
+03-01-2018 @ 21:27:37 - Running wc_update_260_db_version callback
+03-01-2018 @ 21:27:37 - Finished wc_update_260_db_version callback
+03-01-2018 @ 21:27:37 - Data update complete
+2018-03-01T21:32:17+00:00 INFO Queuing 3.0.0 - wc_update_300_grouped_products
+2018-03-01T21:32:17+00:00 INFO Queuing 3.0.0 - wc_update_300_settings
+2018-03-01T21:32:17+00:00 INFO Queuing 3.0.0 - wc_update_300_product_visibility
+2018-03-01T21:32:17+00:00 INFO Queuing 3.0.0 - wc_update_300_db_version
+2018-03-01T21:32:17+00:00 INFO Queuing 3.1.0 - wc_update_310_downloadable_products
+2018-03-01T21:32:17+00:00 INFO Queuing 3.1.0 - wc_update_310_old_comments
+2018-03-01T21:32:17+00:00 INFO Queuing 3.1.0 - wc_update_310_db_version
+2018-03-01T21:32:17+00:00 INFO Queuing 3.1.2 - wc_update_312_shop_manager_capabilities
+2018-03-01T21:32:17+00:00 INFO Queuing 3.1.2 - wc_update_312_db_version
+2018-03-01T21:32:17+00:00 INFO Queuing 3.2.0 - wc_update_320_mexican_states
+2018-03-01T21:32:17+00:00 INFO Queuing 3.2.0 - wc_update_320_db_version
+2018-03-01T21:32:17+00:00 INFO Queuing 3.3.0 - wc_update_330_image_options
+2018-03-01T21:32:17+00:00 INFO Queuing 3.3.0 - wc_update_330_webhooks
+2018-03-01T21:32:17+00:00 INFO Queuing 3.3.0 - wc_update_330_product_stock_status
+2018-03-01T21:32:17+00:00 INFO Queuing 3.3.0 - wc_update_330_set_default_product_cat
+2018-03-01T21:32:17+00:00 INFO Queuing 3.3.0 - wc_update_330_clear_transients
+2018-03-01T21:32:17+00:00 INFO Queuing 3.3.0 - wc_update_330_set_paypal_sandbox_credentials
+2018-03-01T21:32:17+00:00 INFO Queuing 3.3.0 - wc_update_330_db_version
+2018-03-01T21:32:19+00:00 INFO Running wc_update_300_grouped_products callback
+2018-03-01T21:32:19+00:00 INFO Finished wc_update_300_grouped_products callback
+2018-03-01T21:32:19+00:00 INFO Running wc_update_300_settings callback
+2018-03-01T21:32:19+00:00 INFO Finished wc_update_300_settings callback
+2018-03-01T21:32:19+00:00 INFO Running wc_update_300_product_visibility callback
+2018-03-01T21:32:20+00:00 INFO Finished wc_update_300_product_visibility callback
+2018-03-01T21:32:20+00:00 INFO Running wc_update_300_db_version callback
+2018-03-01T21:32:20+00:00 INFO Finished wc_update_300_db_version callback
+2018-03-01T21:32:20+00:00 INFO Running wc_update_310_downloadable_products callback
+2018-03-01T21:32:20+00:00 INFO Finished wc_update_310_downloadable_products callback
+2018-03-01T21:32:20+00:00 INFO Running wc_update_310_old_comments callback
+2018-03-01T21:32:20+00:00 INFO Finished wc_update_310_old_comments callback
+2018-03-01T21:32:20+00:00 INFO Running wc_update_310_db_version callback
+2018-03-01T21:32:20+00:00 INFO Finished wc_update_310_db_version callback
+2018-03-01T21:32:20+00:00 INFO Running wc_update_312_shop_manager_capabilities callback
+2018-03-01T21:32:20+00:00 INFO Finished wc_update_312_shop_manager_capabilities callback
+2018-03-01T21:32:20+00:00 INFO Running wc_update_312_db_version callback
+2018-03-01T21:32:20+00:00 INFO Finished wc_update_312_db_version callback
+2018-03-01T21:32:20+00:00 INFO Running wc_update_320_mexican_states callback
+2018-03-01T21:32:20+00:00 INFO Finished wc_update_320_mexican_states callback
+2018-03-01T21:32:20+00:00 INFO Running wc_update_320_db_version callback
+2018-03-01T21:32:20+00:00 INFO Finished wc_update_320_db_version callback
+2018-03-01T21:32:20+00:00 INFO Running wc_update_330_image_options callback
+2018-03-01T21:32:20+00:00 INFO Finished wc_update_330_image_options callback
+2018-03-01T21:32:20+00:00 INFO Running wc_update_330_webhooks callback
+2018-03-01T21:32:20+00:00 INFO Finished wc_update_330_webhooks callback
+2018-03-01T21:32:20+00:00 INFO Running wc_update_330_product_stock_status callback
+2018-03-01T21:32:20+00:00 INFO Finished wc_update_330_product_stock_status callback
+2018-03-01T21:32:20+00:00 INFO Running wc_update_330_set_default_product_cat callback
+2018-03-01T21:32:20+00:00 INFO Finished wc_update_330_set_default_product_cat callback
+2018-03-01T21:32:20+00:00 INFO Running wc_update_330_clear_transients callback
+2018-03-01T21:32:20+00:00 INFO Finished wc_update_330_clear_transients callback
+2018-03-01T21:32:20+00:00 INFO Running wc_update_330_set_paypal_sandbox_credentials callback
+2018-03-01T21:32:20+00:00 INFO Finished wc_update_330_set_paypal_sandbox_credentials callback
+2018-03-01T21:32:20+00:00 INFO Running wc_update_330_db_version callback
+2018-03-01T21:32:20+00:00 INFO Finished wc_update_330_db_version callback
+2018-03-01T21:32:20+00:00 INFO Data update complete
+03-01-2018 @ 22:41:25 - Queuing 2.5.0 - wc_update_250_currency
+03-01-2018 @ 22:41:25 - Queuing 2.5.0 - wc_update_250_db_version
+03-01-2018 @ 22:41:25 - Queuing 2.6.0 - wc_update_260_options
+03-01-2018 @ 22:41:25 - Queuing 2.6.0 - wc_update_260_termmeta
+03-01-2018 @ 22:41:25 - Queuing 2.6.0 - wc_update_260_zones
+03-01-2018 @ 22:41:25 - Queuing 2.6.0 - wc_update_260_zone_methods
+03-01-2018 @ 22:41:25 - Queuing 2.6.0 - wc_update_260_refunds
+03-01-2018 @ 22:41:25 - Queuing 2.6.0 - wc_update_260_db_version
+03-01-2018 @ 22:41:27 - Running wc_update_250_currency callback
+03-01-2018 @ 22:41:27 - Finished wc_update_250_currency callback
+03-01-2018 @ 22:41:27 - Running wc_update_250_db_version callback
+03-01-2018 @ 22:41:27 - Finished wc_update_250_db_version callback
+03-01-2018 @ 22:41:27 - Running wc_update_260_options callback
+03-01-2018 @ 22:41:27 - Finished wc_update_260_options callback
+03-01-2018 @ 22:41:27 - Running wc_update_260_termmeta callback
+03-01-2018 @ 22:41:29 - Finished wc_update_260_termmeta callback
+03-01-2018 @ 22:41:29 - Running wc_update_260_zones callback
+03-01-2018 @ 22:41:29 - Finished wc_update_260_zones callback
+03-01-2018 @ 22:41:29 - Running wc_update_260_zone_methods callback
+03-01-2018 @ 22:41:29 - Finished wc_update_260_zone_methods callback
+03-01-2018 @ 22:41:29 - Running wc_update_260_refunds callback
+03-01-2018 @ 22:41:29 - Finished wc_update_260_refunds callback
+03-01-2018 @ 22:41:29 - Running wc_update_260_db_version callback
+03-01-2018 @ 22:41:29 - Finished wc_update_260_db_version callback
+03-01-2018 @ 22:41:29 - Data update complete

@@ -11,26 +11,68 @@ class wfUtils {
 		$pattern = str_replace(' ', '\s', $pattern);
 		return $sep . '^' . str_replace('\*', '.*', $pattern) . '$' . $sep . $mod;
 	}
+	public static function versionedAsset($subpath) {
+		$version = WORDFENCE_BUILD_NUMBER;
+		if ($version != 'WORDFENCE_BUILD_NUMBER' && preg_match('/^(.+?)(\.[^\.]+)$/', $subpath, $matches)) {
+			$prefix = $matches[1];
+			$suffix = $matches[2];
+			return $prefix . '.' . $version . $suffix;
+		}
+		
+		return $subpath;
+	}
 	public static function makeTimeAgo($secs, $noSeconds = false) {
 		if($secs < 1){
 			return "a moment";
 		}
-		$months = floor($secs / (86400 * 30));
-		$days = floor($secs / 86400);
-		$hours = floor($secs / 3600);
-		$minutes = floor($secs / 60);
-		if($months) {
-			$days -= $months * 30;
+		
+		if (function_exists('date_diff')) {
+			$now = new DateTime();
+			$utc = new DateTimeZone('UTC');
+			$dtStr = gmdate("c", (int) ($now->getTimestamp() + $secs)); //Have to do it this way because of PHP 5.2
+			$then = new DateTime($dtStr, $utc);
+			
+			$diff = $then->diff($now);
+			$years = $diff->y;
+			$months = $diff->m;
+			$days = $diff->d;
+			$hours = $diff->h;
+			$minutes = $diff->i;
+		}
+		else {
+			$years = 0;
+			$months = floor($secs / (86400 * 30));
+			$days = floor($secs / 86400);
+			$hours = floor($secs / 3600);
+			$minutes = floor($secs / 60);
+			
+			if ($months) {
+				$days -= $months * 30;
+			}
+			else if ($days) {
+				$hours -= $days * 24;
+			}
+			else if ($hours) {
+				$minutes -= $hours * 60;
+			}
+		}
+		
+		if ($years) {
+			return self::pluralize($years, 'year', $months, 'month');
+		}
+		else if ($months) {
 			return self::pluralize($months, 'month', $days, 'day');
-		} else if($days) {
-			$hours -= $days * 24;
+		}
+		else if ($days) {
 			return self::pluralize($days, 'day', $hours, 'hour');
-		} else if($hours) {
-			$minutes -= $hours * 60;
+		}
+		else if ($hours) {
 			return self::pluralize($hours, 'hour', $minutes, 'min');
-		} else if($minutes) {
+		}
+		else if ($minutes) {
 			return self::pluralize($minutes, 'min');
-		} else {
+		}
+		else {
 			if($noSeconds){
 				return "less than a minute";
 			} else {
@@ -71,6 +113,10 @@ class wfUtils {
 			$components[] = self::pluralize($secs, 'second');
 		}
 		
+		if (empty($components)) {
+			$components[] = 'less than 1 second';
+		}
+		
 		return implode(' ', $components);
 	}
 	public static function pluralize($m1, $t1, $m2 = false, $t2 = false) {
@@ -98,6 +144,19 @@ class wfUtils {
 		// $bytes /= (1 << (10 * $pow)); 
 
 		return round($bytes, $precision) . ' ' . $units[$pow];
+	}
+	
+	/**
+	 * Returns the PHP version formatted for display, stripping off the build information when present.
+	 * 
+	 * @return string
+	 */
+	public static function cleanPHPVersion() {
+		$version = phpversion();
+		if (preg_match('/^(\d+\.\d+\.\d+)/', $version, $matches)) {
+			return $matches[1];
+		}
+		return $version;
 	}
 
 	/**
@@ -261,7 +320,7 @@ class wfUtils {
 		if (strlen($ip) == 16 && substr($ip, 0, 12) == "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xff\xff") {
 			$ip = substr($ip, 12, 4);
 		}
-		return self::hasIPv6Support() ? inet_ntop($ip) : self::_inet_ntop($ip);
+		return self::hasIPv6Support() ? @inet_ntop($ip) : self::_inet_ntop($ip);
 	}
 
 	/**
@@ -272,7 +331,7 @@ class wfUtils {
 	 */
 	public static function inet_pton($ip) {
 		// convert the 4 char IPv4 to IPv6 mapped version.
-		$pton = str_pad(self::hasIPv6Support() ? inet_pton($ip) : self::_inet_pton($ip), 16,
+		$pton = str_pad(self::hasIPv6Support() ? @inet_pton($ip) : self::_inet_pton($ip), 16,
 			"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xff\xff\x00\x00\x00\x00", STR_PAD_LEFT);
 		return $pton;
 	}
@@ -413,6 +472,48 @@ class wfUtils {
 	}
 	public static function makeRandomIP(){
 		return rand(11,230) . '.' . rand(0,255) . '.' . rand(0,255) . '.' . rand(0,255);
+	}
+	
+	/**
+	 * Converts a truthy value to a boolean, checking in this order:
+	 * - already a boolean
+	 * - numeric (0 => false, otherwise true)
+	 * - 'false', 'f', 'no', 'n', or 'off' => false
+	 * - 'true', 't', 'yes', 'y', or 'on' => true
+	 * - empty value => false, otherwise true
+	 * 
+	 * @param $value
+	 * @return bool
+	 */
+	public static function truthyToBoolean($value) {
+		if ($value === true || $value === false) {
+			return $value;
+		}
+		
+		if (is_numeric($value)) {
+			return !!$value;
+		}
+		
+		if (preg_match('/^(?:f(?:alse)?|no?|off)$/i', $value)) {
+			return false;
+		}
+		else if (preg_match('/^(?:t(?:rue)?|y(?:es)?|on)$/i', $value)) {
+			return true;
+		}
+		
+		return !empty($value);
+	}
+	
+	/**
+	 * Converts a truthy value to 1 or 0.
+	 * 
+	 * @see wfUtils::truthyToBoolean
+	 * 
+	 * @param $value
+	 * @return int
+	 */
+	public static function truthyToInt($value) {
+		return self::truthyToBoolean($value) ? 1 : 0;
 	}
 
 	/**
@@ -751,6 +852,14 @@ class wfUtils {
 		
 		return true;
 	}
+	public static function isValidEmail($email, $strict = false) {
+		//We don't default to strict, full validation because poorly-configured servers can crash due to the regex PHP uses in filter_var($email, FILTER_VALIDATE_EMAIL)
+		if ($strict) {
+			return filter_var($email, FILTER_VALIDATE_EMAIL !== false);
+		}
+		
+		return preg_match('/^[^@\s]+@[^@\s]+\.[^@\s]+$/i', $email) === 1;
+	}
 	public static function getRequestedURL() {
 		if (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']) {
 			$host = $_SERVER['HTTP_HOST'];
@@ -761,7 +870,7 @@ class wfUtils {
 			return null;
 		}
 		$prefix = 'http';
-		if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']) {
+		if (is_ssl()) {
 			$prefix = 'https';
 		}
 		return $prefix . '://' . $host . $_SERVER['REQUEST_URI'];
@@ -809,7 +918,12 @@ class wfUtils {
 		$c2 = array_shift($trace);
 		error_log("Caller for " . $caller['file'] . " line " . $caller['line'] . " is " . $c2['file'] . ' line ' . $c2['line']);
 	}
-	public static function getWPVersion(){
+	public static function getWPVersion($forceRecheck = false){
+		if ($forceRecheck) {
+			require(ABSPATH . 'wp-includes/version.php'); //defines $wp_version
+			return $wp_version;
+		}
+		
 		if(wordfence::$wordfence_wp_version){
 			return wordfence::$wordfence_wp_version;
 		} else {
@@ -937,7 +1051,7 @@ class wfUtils {
 
 	public static function endProcessingFile() {
 		wfConfig::set('scanFileProcessing', null);
-		if (wfConfig::get('lowResourceScansEnabled')) {
+		if (wfScanner::shared()->useLowResourceScanning()) {
 			usleep(10000); //10 ms
 		}
 	}
@@ -957,14 +1071,7 @@ class wfUtils {
 		$wfdb->truncate($wpdb->base_prefix . 'wfHoover');
 
 		wfConfig::set('wf_scanRunning', '');
-	}
-	public static function isScanRunning(){
-		$scanRunning = wfConfig::get('wf_scanRunning');
-		if($scanRunning && time() - $scanRunning < WORDFENCE_MAX_SCAN_LOCK_TIME){
-			return true;
-		} else {
-			return false;
-		}
+		wfIssues::updateScanStillRunning(false);
 	}
 	public static function getIPGeo($IP){ //Works with int or dotted
 
@@ -1056,6 +1163,11 @@ class wfUtils {
 	}
 
 	public static function reverseLookup($IP) {
+		static $_memoryCache = array();
+		if (isset($_memoryCache[$IP])) {
+			return $_memoryCache[$IP];
+		}
+		
 		$db = new wfDB();
 		global $wpdb;
 		$reverseTable = $wpdb->base_prefix . 'wfReverseCache';
@@ -1081,14 +1193,17 @@ class wfUtils {
 					}
 				}
 			}
+			$_memoryCache[$IP] = $host;
 			if (!$host) {
 				$host = 'NONE';
 			}
 			$db->queryWrite("insert into " . $reverseTable . " (IP, host, lastUpdate) values (%s, '%s', unix_timestamp()) ON DUPLICATE KEY UPDATE host='%s', lastUpdate=unix_timestamp()", $IPn, $host, $host);
 		}
 		if ($host == 'NONE') {
+			$_memoryCache[$IP] = '';
 			return '';
 		} else {
+			$_memoryCache[$IP] = $host;
 			return $host;
 		}
 	}
@@ -1464,7 +1579,7 @@ class wfUtils {
 	 * @param bool $inline
 	 * @return string
 	 */
-	public static function potentialBinaryStringToHTML($string, $inline = false) {
+	public static function potentialBinaryStringToHTML($string, $inline = false, $allowmb4 = false) {
 		$output = '';
 		
 		if (!defined('ENT_SUBSTITUTE')) {
@@ -1483,7 +1598,7 @@ class wfUtils {
 				$output .= $span . '\x' . str_pad(dechex($b), 2, '0', STR_PAD_LEFT) . '</span>';
 			}
 			else if ($b < 0x80) {
-				$output .= htmlspecialchars($c, ENT_QUOTES, 'UTF-8');
+				$output .= htmlspecialchars($c, ENT_QUOTES, 'ISO-8859-1');
 			}
 			else { //Assume multi-byte UTF-8
 				$bytes = 0;
@@ -1507,6 +1622,37 @@ class wfUtils {
 					}
 				}
 				
+				if (!$brokenUTF8) { //Ensure the byte sequences are within the accepted ranges: https://tools.ietf.org/html/rfc3629
+					/*
+					 * UTF8-octets = *( UTF8-char )
+   					 * UTF8-char   = UTF8-1 / UTF8-2 / UTF8-3 / UTF8-4
+   					 * UTF8-1      = %x00-7F
+   					 * UTF8-2      = %xC2-DF UTF8-tail
+   					 * UTF8-3      = %xE0 %xA0-BF UTF8-tail / %xE1-EC 2( UTF8-tail ) /
+   					 *               %xED %x80-9F UTF8-tail / %xEE-EF 2( UTF8-tail )
+   					 * UTF8-4      = %xF0 %x90-BF 2( UTF8-tail ) / %xF1-F3 3( UTF8-tail ) /
+   					 *               %xF4 %x80-8F 2( UTF8-tail )
+   					 * UTF8-tail   = %x80-BF
+					 */
+					
+					$testString = wfUtils::substr($string, $i, $bytes);
+					$regex = '/^(?:' .
+						'[\xc2-\xdf][\x80-\xbf]' . //UTF8-2
+						'|' . '\xe0[\xa0-\xbf][\x80-\xbf]' . //UTF8-3
+						'|' . '[\xe1-\xec][\x80-\xbf]{2}' .
+						'|' . '\xed[\x80-\x9f][\x80-\xbf]' .
+						'|' . '[\xee-\xef][\x80-\xbf]{2}';
+					if ($allowmb4) {
+						$regex .= '|' . '\xf0[\x90-\xbf][\x80-\xbf]{2}' . //UTF8-4
+							'|' . '[\xf1-\xf3][\x80-\xbf]{3}' .
+							'|' . '\xf4[\x80-\x8f][\x80-\xbf]{2}';
+					}
+					$regex  .= ')$/';
+					if (!preg_match($regex, $testString)) {
+						$brokenUTF8 = true;
+					}
+				}
+				
 				if ($brokenUTF8) {
 					$bytes = min($bytes, strlen($string) - $i);
 					for ($n = 0; $n < $bytes; $n++) {
@@ -1517,7 +1663,7 @@ class wfUtils {
 					$i += ($bytes - 1);
 				}
 				else {
-					$output .= htmlspecialchars(substr($string, $i, $bytes), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+					$output .= htmlspecialchars(wfUtils::substr($string, $i, $bytes), ENT_QUOTES | ENT_SUBSTITUTE, 'ISO-8859-1');
 					$i += ($bytes - 1);
 				}
 			}
@@ -1654,6 +1800,33 @@ class wfUtils {
 		return true;
 	}
 	
+	/**
+	 * Returns a v4 UUID.
+	 * 
+	 * @return string
+	 */
+	public static function uuid() {
+		return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+			// 32 bits for "time_low"
+			wfWAFUtils::random_int(0, 0xffff), wfWAFUtils::random_int(0, 0xffff),
+			
+			// 16 bits for "time_mid"
+			wfWAFUtils::random_int(0, 0xffff),
+			
+			// 16 bits for "time_hi_and_version",
+			// four most significant bits holds version number 4
+			wfWAFUtils::random_int(0, 0x0fff) | 0x4000,
+			
+			// 16 bits, 8 bits for "clk_seq_hi_res",
+			// 8 bits for "clk_seq_low",
+			// two most significant bits holds zero and one for variant DCE1.1
+			wfWAFUtils::random_int(0, 0x3fff) | 0x8000,
+			
+			// 48 bits for "node"
+			wfWAFUtils::random_int(0, 0xffff), wfWAFUtils::random_int(0, 0xffff), wfWAFUtils::random_int(0, 0xffff)
+		);
+	}
+	
 	public static function base32_encode($rawString, $rightPadFinalBits = false, $padFinalGroup = false, $padCharacter = '=') //Adapted from https://github.com/ademarre/binary-to-text-php
 	{
 		// Unpack string into an array of bytes
@@ -1723,27 +1896,152 @@ class wfUtils {
 		return $encodedString;
 	}
 	
-	public static function wpHomeURL($path = '', $scheme = null) {
-		$homeurl = wfConfig::get('wp_home_url', '');
-		if (function_exists('get_bloginfo')) {
+	private static function _home_url_nofilter($path = '', $scheme = null) { //A version of the native get_home_url and get_option without the filter calls
+		global $pagenow, $wpdb, $blog_id;
+		
+		static $cached_url = null;
+		if ($cached_url !== null) {
+			return $cached_url;
+		}
+		
+		if (defined('WP_HOME') && WORDFENCE_PREFER_WP_HOME_FOR_WPML) {
+			$cached_url = WP_HOME;
+			return $cached_url;
+		}
+		
+		if ( empty( $blog_id ) || !is_multisite() ) {
+			$url = $wpdb->get_var("SELECT option_value FROM {$wpdb->options} WHERE option_name = 'home' LIMIT 1");
+			if (empty($url)) { //get_option uses siteurl instead if home is empty
+				$url = $wpdb->get_var("SELECT option_value FROM {$wpdb->options} WHERE option_name = 'siteurl' LIMIT 1");
+			}
+		}
+		else if (is_multisite()) {
+			$current_network = get_network();
+			if ( 'relative' == $scheme )
+				$url = $current_network->path;
+			else
+				$url = 'http://' . $current_network->domain . $current_network->path;
+		}
+		
+		if ( ! in_array( $scheme, array( 'http', 'https', 'relative' ) ) ) {
+			if ( is_ssl() && ! is_admin() && 'wp-login.php' !== $pagenow )
+				$scheme = 'https';
+			else
+				$scheme = parse_url( $url, PHP_URL_SCHEME );
+		}
+		
+		$url = set_url_scheme( $url, $scheme );
+		
+		if ( $path && is_string( $path ) )
+			$url .= '/' . ltrim( $path, '/' );
+		
+		$cached_url = $url;
+		return $url;
+	}
+	
+	public static function refreshCachedHomeURL() {
+		$pullDirectly = class_exists('WPML_URL_Filters');
+		$homeurl = '';
+		if ($pullDirectly) {
+			//A version of the native get_home_url without the filter call
+			$homeurl = self::_home_url_nofilter();
+		}
+		
+		if (function_exists('get_bloginfo') && empty($homeurl)) {
 			if (is_multisite()) {
-				if (empty($homeurl)) {
-					$homeurl = network_home_url($path, $scheme);
-					$homeurl = rtrim($homeurl, '/'); //Because previously we used get_bloginfo and it returns http://example.com without a '/' char.
-				}
+				$homeurl = network_home_url();
+				$homeurl = rtrim($homeurl, '/'); //Because previously we used get_bloginfo and it returns http://example.com without a '/' char.
 			}
 			else {
-				if (empty($homeurl)) {
-					$homeurl = home_url($path, $scheme);
-				}
+				$homeurl = home_url();
+			}
+		}
+		
+		if (wfConfig::get('wp_home_url') !== $homeurl) {
+			wfConfig::set('wp_home_url', $homeurl);
+		}
+	}
+	
+	public static function wpHomeURL($path = '', $scheme = null) {
+		$homeurl = wfConfig::get('wp_home_url', '');
+		if (function_exists('get_bloginfo') && empty($homeurl)) {
+			if (is_multisite()) {
+				$homeurl = network_home_url($path, $scheme);
+				$homeurl = rtrim($homeurl, '/'); //Because previously we used get_bloginfo and it returns http://example.com without a '/' char.
+			}
+			else {
+				$homeurl = home_url($path, $scheme);
 			}
 		}
 		return $homeurl;
 	}
 	
-	public static function wpSiteURL($path = '', $scheme = null) {
+	private static function _site_url_nofilter($path = '', $scheme = null) { //A version of the native get_site_url and get_option without the filter calls
+		global $pagenow, $wpdb, $blog_id;
+		
+		static $cached_url = null;
+		if ($cached_url !== null) {
+			return $cached_url;
+		}
+		
+		if (defined('WP_SITEURL') && WORDFENCE_PREFER_WP_HOME_FOR_WPML) {
+			$cached_url = WP_SITEURL;
+			return $cached_url;
+		}
+		
+		if ( empty( $blog_id ) || !is_multisite() ) {
+			$url = $wpdb->get_var("SELECT option_value FROM {$wpdb->options} WHERE option_name = 'siteurl' LIMIT 1");
+		}
+		else if (is_multisite()) {
+			$current_network = get_network();
+			if ( 'relative' == $scheme )
+				$url = $current_network->path;
+			else
+				$url = 'http://' . $current_network->domain . $current_network->path;
+		}
+		
+		if ( ! in_array( $scheme, array( 'http', 'https', 'relative' ) ) ) {
+			if ( is_ssl() && ! is_admin() && 'wp-login.php' !== $pagenow )
+				$scheme = 'https';
+			else
+				$scheme = parse_url( $url, PHP_URL_SCHEME );
+		}
+		
+		$url = set_url_scheme( $url, $scheme );
+		
+		if ( $path && is_string( $path ) )
+			$url .= '/' . ltrim( $path, '/' );
+		
+		$cached_url = $url;
+		return $url;
+	}
+	
+	public static function refreshCachedSiteURL() {
+		$pullDirectly = class_exists('WPML_URL_Filters');
 		$siteurl = '';
-		if (function_exists('get_bloginfo')) {
+		if ($pullDirectly) {
+			//A version of the native get_home_url without the filter call
+			$siteurl = self::_site_url_nofilter();
+		}
+		
+		if (function_exists('get_bloginfo') && empty($siteurl)) {
+			if (is_multisite()) {
+				$siteurl = network_site_url();
+				$siteurl = rtrim($siteurl, '/'); //Because previously we used get_bloginfo and it returns http://example.com without a '/' char.
+			}
+			else {
+				$siteurl = site_url();
+			}
+		}
+		
+		if (wfConfig::get('wp_site_url') !== $siteurl) {
+			wfConfig::set('wp_site_url', $siteurl);
+		}
+	}
+	
+	public static function wpSiteURL($path = '', $scheme = null) {
+		$siteurl = wfConfig::get('wp_site_url', '');
+		if (function_exists('get_bloginfo') && empty($siteurl)) {
 			if (is_multisite()) {
 				$siteurl = network_site_url($path, $scheme);
 			}
@@ -1949,6 +2247,20 @@ class wfUtils {
 		return self::callMBSafeStrFunction('strrpos', $args);
 	}
 	
+	public static function sets_equal($a1, $a2) {
+		if (!is_array($a1) || !is_array($a2)) {
+			return false;
+		}
+		
+		if (count($a1) != count($a2)) {
+			return false;
+		}
+		
+		sort($a1, SORT_NUMERIC);
+		sort($a2, SORT_NUMERIC);
+		return $a1 == $a2;
+	}
+	
 	public static function array_first($array) {
 		if (empty($array)) {
 			return null;
@@ -1973,14 +2285,134 @@ class wfUtils {
 	 *
 	 * @return int
 	 */
-	public static function normalizedTime() {
+	public static function normalizedTime($base = false) {
+		if ($base === false) {
+			$base = time();
+		}
+		
 		$offset = wfConfig::get('timeoffset_ntp', false);
 		if ($offset === false) {
 			$offset = wfConfig::get('timeoffset_wf', false);
 			if ($offset === false) { $offset = 0; }
 		}
-		return time() + $offset;
+		return $base + $offset;
 	}
+	
+	/**
+	 * Returns what we consider a true timestamp, adjusted as needed to match the local server's drift. We use this
+	 * because a significant number of servers are using a drastically incorrect time.
+	 *
+	 * @return int
+	 */
+	public static function denormalizedTime($base) {
+		$offset = wfConfig::get('timeoffset_ntp', false);
+		if ($offset === false) {
+			$offset = wfConfig::get('timeoffset_wf', false);
+			if ($offset === false) { $offset = 0; }
+		}
+		return $base - $offset;
+	}
+	
+	/**
+	 * Returns the number of minutes for the time zone offset from UTC. If $timestamp and using a named time zone, 
+	 * it will be adjusted automatically to match whether or not the server's time zone is in Daylight Savings Time.
+	 * 
+	 * @param bool|int $timestamp Assumed to be in UTC. If false, defaults to the current timestamp.
+	 * @return int
+	 */
+	public static function timeZoneMinutes($timestamp = false) {
+		if ($timestamp === false) {
+			$timestamp = time();
+		}
+		
+		$tz = get_option('timezone_string');
+		if (!empty($tz)) {
+			$timezone = new DateTimeZone($tz);
+			$dtStr = gmdate("c", (int) $timestamp); //Have to do it this way because of PHP 5.2
+			$dt = new DateTime($dtStr, $timezone);
+			return (int) ($timezone->getOffset($dt) / 60);
+		}
+		else {
+			$gmt = get_option('gmt_offset');
+			if (!empty($gmt)) {
+				return (int) ($gmt * 60);
+			}
+		}
+		
+		return 0;
+	}
+	
+	/**
+	 * Formats and returns the given timestamp using the time zone set for the WordPress installation.
+	 * 
+	 * @param string $format See the PHP docs on DateTime for the format options. 
+	 * @param int|bool $timestamp Assumed to be in UTC. If false, defaults to the current timestamp.
+	 * @return string
+	 */
+	public static function formatLocalTime($format, $timestamp = false) {
+		if ($timestamp === false) {
+			$timestamp = time();
+		}
+		
+		$utc = new DateTimeZone('UTC');
+		$dtStr = gmdate("c", (int) $timestamp); //Have to do it this way because of PHP 5.2
+		$dt = new DateTime($dtStr, $utc);
+		$tz = get_option('timezone_string');
+		if (!empty($tz)) {
+			$dt->setTimezone(new DateTimeZone($tz));
+		}
+		else {
+			$gmt = get_option('gmt_offset');
+			if (!empty($gmt)) {
+				if (PHP_VERSION_ID < 50510) {
+					$dtStr = gmdate("c", (int) ($timestamp + $gmt * 3600)); //Have to do it this way because of < PHP 5.5.10
+					$dt = new DateTime($dtStr, $utc);
+				}
+				else {
+					$direction = ($gmt > 0 ? '+' : '-');
+					$gmt = abs($gmt);
+					$h = (int) $gmt;
+					$m = ($gmt - $h) * 60;
+					$dt->setTimezone(new DateTimeZone($direction . str_pad($h, 2, '0', STR_PAD_LEFT) . str_pad($m, 2, '0', STR_PAD_LEFT)));
+				}
+			}
+		}
+		return $dt->format($format);
+	}
+	
+	/**
+	 * Parses the given time string and returns its DateTime with the server's configured time zone.
+	 * 
+	 * @param string $timestring
+	 * @return DateTime
+	 */
+	public static function parseLocalTime($timestring) {
+		$utc = new DateTimeZone('UTC');
+		$tz = get_option('timezone_string');
+		if (!empty($tz)) {
+			$tz = new DateTimeZone($tz);
+			return new DateTime($timestring, $tz);
+		}
+		else {
+			$gmt = get_option('gmt_offset');
+			if (!empty($gmt)) {
+				if (PHP_VERSION_ID < 50510) {
+					$timestamp = strtotime($timestring);
+					$dtStr = gmdate("c", (int) ($timestamp + $gmt * 3600)); //Have to do it this way because of < PHP 5.5.10
+					return new DateTime($dtStr, $utc);
+				}
+				else {
+					$direction = ($gmt > 0 ? '+' : '-');
+					$gmt = abs($gmt);
+					$h = (int) $gmt;
+					$m = ($gmt - $h) * 60;
+					$tz = new DateTimeZone($direction . str_pad($h, 2, '0', STR_PAD_LEFT) . str_pad($m, 2, '0', STR_PAD_LEFT));
+					return new DateTime($timestring, $tz);
+				}
+			}
+		}
+		return new DateTime($timestring);
+	} 
 }
 
 // GeoIP lib uses these as well
@@ -2012,11 +2444,12 @@ class wfWebServerInfo {
 	 */
 	public static function createFromEnvironment() {
 		$serverInfo = new self;
+		$sapi = php_sapi_name();
 		if (stripos($_SERVER['SERVER_SOFTWARE'], 'apache') !== false) {
 			$serverInfo->setSoftware(self::APACHE);
 			$serverInfo->setSoftwareName('apache');
 		}
-		if (stripos($_SERVER['SERVER_SOFTWARE'], 'litespeed') !== false) {
+		if (stripos($_SERVER['SERVER_SOFTWARE'], 'litespeed') !== false || $sapi == 'litespeed') {
 			$serverInfo->setSoftware(self::LITESPEED);
 			$serverInfo->setSoftwareName('litespeed');
 		}
@@ -2029,7 +2462,7 @@ class wfWebServerInfo {
 			$serverInfo->setSoftwareName('iis');
 		}
 
-		$serverInfo->setHandler(php_sapi_name());
+		$serverInfo->setHandler($sapi);
 
 		return $serverInfo;
 	}
@@ -2135,5 +2568,3 @@ class wfWebServerInfo {
 		$this->softwareName = $softwareName;
 	}
 }
-
-?>

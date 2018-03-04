@@ -9,6 +9,7 @@ define( 'GTM4WP_OPTION_INCLUDE_LOGGEDIN',      'include-loggedin' );
 define( 'GTM4WP_OPTION_INCLUDE_USERROLE',      'include-userrole' );
 define( 'GTM4WP_OPTION_INCLUDE_USERID',        'include-userid' );
 define( 'GTM4WP_OPTION_INCLUDE_USEREMAIL',     'include-useremail' );
+define( 'GTM4WP_OPTION_INCLUDE_USERREGDATE',   'include-userregdate' );
 define( 'GTM4WP_OPTION_INCLUDE_POSTTYPE',      'include-posttype' );
 define( 'GTM4WP_OPTION_INCLUDE_CATEGORIES',    'include-categories' );
 define( 'GTM4WP_OPTION_INCLUDE_TAGS',          'include-tags' );
@@ -80,13 +81,18 @@ define( 'GTM4WP_OPTION_BLACKLIST_MACRO_AUTOEVENT',   'blacklist-macro-autoevent-
 
 define( 'GTM4WP_OPTION_INTEGRATE_WPCF7',         'integrate-wpcf7' );
 
-define( 'GTM4WP_OPTION_INTEGRATE_WOOCOMMERCE',       'integrate-woocommerce' );
-define( 'GTM4WP_OPTION_INTEGRATE_WCTRACKCLASSICEC',  'integrate-woocommerce-track-classic-ecommerce' );
-define( 'GTM4WP_OPTION_INTEGRATE_WCTRACKENHANCEDEC', 'integrate-woocommerce-track-enhanced-ecommerce' );
-define( 'GTM4WP_OPTION_INTEGRATE_WCREMARKETING',     'integrate-woocommerce-remarketing' );
-define( 'GTM4WP_OPTION_INTEGRATE_WCUSESKU',          'integrate-woocommerce-remarketing-usesku' );
+define( 'GTM4WP_OPTION_INTEGRATE_WOOCOMMERCE',           'integrate-woocommerce' );
+define( 'GTM4WP_OPTION_INTEGRATE_WCTRACKCLASSICEC',      'integrate-woocommerce-track-classic-ecommerce' );
+define( 'GTM4WP_OPTION_INTEGRATE_WCTRACKENHANCEDEC',     'integrate-woocommerce-track-enhanced-ecommerce' );
+define( 'GTM4WP_OPTION_INTEGRATE_WCREMARKETING',         'integrate-woocommerce-remarketing' );
+define( 'GTM4WP_OPTION_INTEGRATE_WCUSESKU',              'integrate-woocommerce-remarketing-usesku' );
+define( 'GTM4WP_OPTION_INTEGRATE_WCREMPRODIDPREFIX',     'integrate-woocommerce-remarketing-productidprefix' );
+define( 'GTM4WP_OPTION_INTEGRATE_WCEECCARTASFIRSTSTEP',  'integrate-woocommerce-cart-as-first-step' );
+define( 'GTM4WP_OPTION_INTEGRATE_GOOGLEOPTIMIZEIDS',     'integrate-google-optimize-idlist' );
+define( 'GTM4WP_OPTION_INTEGRATE_GOOGLEOPTIMIZETIMEOUT', 'integrate-google-optimize-timeout' );
 
 define( 'GTM4WP_OPTION_INTEGRATE_WPECOMMERCE',   'integrate-wp-e-commerce' );
+
 
 define( 'GTM4WP_PLACEMENT_FOOTER',        0 );
 define( 'GTM4WP_PLACEMENT_BODYOPEN',      1 );
@@ -105,6 +111,7 @@ $gtm4wp_defaultoptions = array(
 	GTM4WP_OPTION_INCLUDE_USERROLE      => false,
 	GTM4WP_OPTION_INCLUDE_USERID        => false,
 	GTM4WP_OPTION_INCLUDE_USEREMAIL     => false,
+	GTM4WP_OPTION_INCLUDE_USERREGDATE   => false,
 	GTM4WP_OPTION_INCLUDE_POSTTYPE      => true,
 	GTM4WP_OPTION_INCLUDE_CATEGORIES    => true,
 	GTM4WP_OPTION_INCLUDE_TAGS          => true,
@@ -177,10 +184,15 @@ $gtm4wp_defaultoptions = array(
 	GTM4WP_OPTION_INTEGRATE_WPCF7       => false,
 
 //	GTM4WP_OPTION_INTEGRATE_WOOCOMMERCE       => false,
-	GTM4WP_OPTION_INTEGRATE_WCTRACKCLASSICEC  => false,
-	GTM4WP_OPTION_INTEGRATE_WCTRACKENHANCEDEC => false,
-	GTM4WP_OPTION_INTEGRATE_WCREMARKETING     => false,
-	GTM4WP_OPTION_INTEGRATE_WCUSESKU          => false,
+	GTM4WP_OPTION_INTEGRATE_WCTRACKCLASSICEC     => false,
+	GTM4WP_OPTION_INTEGRATE_WCTRACKENHANCEDEC    => false,
+	GTM4WP_OPTION_INTEGRATE_WCREMARKETING        => false,
+	GTM4WP_OPTION_INTEGRATE_WCUSESKU             => false,
+	GTM4WP_OPTION_INTEGRATE_WCREMPRODIDPREFIX    => "",
+	GTM4WP_OPTION_INTEGRATE_WCEECCARTASFIRSTSTEP => false,
+
+	GTM4WP_OPTION_INTEGRATE_GOOGLEOPTIMIZEIDS     => "",
+	GTM4WP_OPTION_INTEGRATE_GOOGLEOPTIMIZETIMEOUT => 4000,
 
 	GTM4WP_OPTION_INTEGRATE_WPECOMMERCE => false
 );

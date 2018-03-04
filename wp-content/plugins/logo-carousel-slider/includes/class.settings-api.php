@@ -3,7 +3,7 @@
 /**
  * Protect direct access
  */
-if ( ! defined( 'ABSPATH' ) ) die( LCS_HACK_MSG );
+if ( ! defined( 'ABSPATH' ) ) die( 'Accessing this file directly is denied.' );
 
 /**
  * weDevs Settings API wrapper class
@@ -14,8 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) die( LCS_HACK_MSG );
  * @link http://tareq.weDevs.com Tareq's Planet
  * @example src/settings-api.php How to use the class
  */
-if ( !class_exists( 'lcs_Settings_API' ) ):
-class lcs_Settings_API {
+if ( !class_exists( 'lCS_Settings_API' ) ):
+class lCS_Settings_API {
 
     /**
      * settings sections array
@@ -50,6 +50,7 @@ class lcs_Settings_API {
      * Set settings sections
      *
      * @param array   $sections setting sections array
+     * @return object | lCS_Settings_API It returns an object of lCS_Settings_API
      */
     function set_sections( $sections ) {
         $this->settings_sections = $sections;
@@ -61,6 +62,7 @@ class lcs_Settings_API {
      * Add a single section
      *
      * @param array   $section
+     * @return object | lCS_Settings_API It returns an object of lCS_Settings_API
      */
     function add_section( $section ) {
         $this->settings_sections[] = $section;
@@ -72,6 +74,7 @@ class lcs_Settings_API {
      * Set settings fields
      *
      * @param array   $fields settings fields array
+     * @return object | lCS_Settings_API It returns an object of lCS_Settings_API
      */
     function set_fields( $fields ) {
         $this->settings_fields = $fields;
@@ -154,6 +157,7 @@ class lcs_Settings_API {
      * Get field description for display
      *
      * @param array   $args settings field args
+     * @return string
      */
     public function get_field_description( $args ) {
         if ( ! empty( $args['desc'] ) ) {
@@ -169,6 +173,7 @@ class lcs_Settings_API {
      * Displays a text field for a settings field
      *
      * @param array   $args settings field args
+     * @return void
      */
     function callback_text( $args ) {
 
@@ -305,7 +310,7 @@ class lcs_Settings_API {
      * Displays a textarea for a settings field
      *
      * @param array   $args settings field args
-     * @return string
+     * @return void
      */
     function callback_html( $args ) {
         echo $this->get_field_description( $args );
@@ -455,9 +460,19 @@ class lcs_Settings_API {
     }
 
     /**
+     * It displays notification about saving data. Success or failure
+     *
+     * @return void
+     */
+    function show_notification(){
+        settings_errors();
+    }
+
+    /**
      * Show navigations as tab
      *
      * Shows all the settings section labels as tab
+     * @return void
      */
     function show_navigation() {
         $html = '<h2 class="nav-tab-wrapper">';
@@ -475,6 +490,7 @@ class lcs_Settings_API {
      * Show the section settings forms
      *
      * This function displays every sections in a different form
+     * @return void
      */
     function show_forms() {
         ?>

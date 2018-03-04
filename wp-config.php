@@ -18,9 +18,8 @@
 /** The name of the database for WordPress */
  //Added by WP-Cache Manager
 define('WP_CACHE', true); //Added by WP-Cache Manager
-//define( 'WPCACHEHOME', '/home1/rickdurand/public_html/wp-content/plugins/wp-super-cache/' ); //Added by WP-Cache Manager
-define( 'WPCACHEHOME', './wp-content/plugins/wp-super-cache/' ); //Added by WP-Cache Manager
-define('MMAFF', 'hostgator' ); //Added by QuickInstall
+define('WPCACHEHOME', dirname(__FILE__) . '/wp-content/plugins/wp-super-cache/'); //Added by WP-Cache Manager
+//define('MMAFF', 'hostgator' ); //Added by QuickInstall
 
 define('DB_NAME', 'conspecmaterials_dev_local');
 
@@ -84,17 +83,16 @@ define('WPLANG', '');
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-define('WP_DEBUG', true);
+define('WP_DEBUG', false);
 
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+  define('ABSPATH', dirname(__FILE__) . '/');
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
-
 
 define('WP_HOME','https://dev.local.conspecmaterials.com:7443');
 define('WP_SITEURL','https://dev.local.conspecmaterials.com:7443');

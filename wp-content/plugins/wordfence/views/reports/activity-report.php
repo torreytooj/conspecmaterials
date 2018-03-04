@@ -1,4 +1,5 @@
 <?php
+if (!defined('WORDFENCE_VERSION')) { exit; }
 /**
  * @var wfActivityReportView $this
  */
@@ -9,19 +10,19 @@
 
 <?php wfHelperString::cycle(); ?>
 
-<table class="wf-striped-table">
+<table class="wf-striped-table wf-fixed-table">
 	<thead>
 		<tr>
-			<th>IP</th>
-			<th>Country</th>
-			<th>Block Count</th>
+			<th width="50%">IP</th>
+			<th width="25%">Country</th>
+			<th width="25%">Block Count</th> 
 		</tr>
 	</thead>
 	<tbody>
 		<?php if ($top_ips_blocked): ?>
 			<?php foreach ($top_ips_blocked as $row): ?>
 				<tr class="<?php echo wfHelperString::cycle('odd', 'even') ?>">
-					<td><code><?php echo wfUtils::inet_ntop($row->IP) ?></code></td>
+					<td class="wf-split-word"><code><?php echo wfUtils::inet_ntop($row->IP) ?></code></td>
 					<td>
 						<?php if ($row->countryCode): ?>
 							<img src="<?php echo wfUtils::getBaseURL() . 'images/flags/' . esc_attr(strtolower($row->countryCode)) ?>.png" class="wfFlag" height="11" width="16" alt="<?php echo esc_attr($row->countryName) ?>" title="<?php echo esc_attr($row->countryName) ?>">
@@ -45,14 +46,14 @@
 </table>
 
 <p>
-	<a class="button button-primary" href="<?php echo network_admin_url('admin.php?page=WordfenceBlocking#top#blockedips') ?>">Update Blocked IPs</a>
+	<a class="button button-primary" href="<?php echo network_admin_url('admin.php?page=WordfenceWAF#top#blocking') ?>">Update Blocked IPs</a>
 </p>
 
 <?php wfHelperString::cycle(); ?>
 
 <h2>Top <?php echo (int) $limit; ?> Countries Blocked</h2>
 
-<table class="wf-striped-table">
+<table class="wf-striped-table wf-fixed-table">
 	<thead>
 		<tr>
 			<th>Country</th>
@@ -88,14 +89,14 @@
 </table>
 
 <p>
-	<a class="button button-primary" href="<?php echo network_admin_url('admin.php?page=WordfenceBlocking#top#countryblocking') ?>">Update Blocked Countries</a>
+	<a class="button button-primary" href="<?php echo network_admin_url('admin.php?page=WordfenceWAF#top#blocking') ?>">Update Blocked Countries</a>
 </p>
 
 <?php wfHelperString::cycle(); ?>
 
 <h2>Top <?php echo (int) $limit; ?> Failed Logins</h2>
 
-<table class="wf-striped-table">
+<table class="wf-striped-table wf-fixed-table">
 	<thead>
 		<tr>
 			<th>Username</th>
@@ -123,7 +124,7 @@
 </table>
 
 <p>
-	<a class="button button-primary" href="<?php echo network_admin_url('admin.php?page=WordfenceSecOpt#wfMarkerLoginSecurity') ?>">Update Login Security Options</a>
+	<a class="button button-primary" href="<?php echo network_admin_url('admin.php?page=WordfenceWAF&subpage=waf_options#waf-options-bruteforce') ?>">Update Login Security Options</a>
 </p>
 
 <?php wfHelperString::cycle(); ?>

@@ -49,21 +49,12 @@ class wordfenceHash {
 
 		$this->startTime = microtime(true);
 
-		if(wfConfig::get('scansEnabled_core')){
-			$this->coreEnabled = true;
-		}
-		if(wfConfig::get('scansEnabled_plugins')){
-			$this->pluginsEnabled = true;
-		}
-		if(wfConfig::get('scansEnabled_themes')){
-			$this->themesEnabled = true;
-		}
-		if(wfConfig::get('scansEnabled_malware')){
-			$this->malwareEnabled = true;
-		}
-		if(wfConfig::get('scansEnabled_coreUnknown')){
-			$this->coreUnknownEnabled = true;
-		}
+		$options = $this->engine->scanController()->scanOptions();
+		if ($options['scansEnabled_core']) { $this->coreEnabled = true; }
+		if ($options['scansEnabled_plugins']) { $this->pluginsEnabled = true; }
+		if ($options['scansEnabled_themes']) { $this->themesEnabled = true; }
+		if ($options['scansEnabled_malware']) { $this->malwareEnabled = true; }
+		if ($options['scansEnabled_coreUnknown']) { $this->coreUnknownEnabled = true; }
 
 		$this->db = new wfDB();
 
@@ -74,8 +65,7 @@ class wordfenceHash {
 		$this->db->truncate($this->db->prefix() . "wfPendingIssues");
 		$fetchCoreHashesStatus = wfIssues::statusStart("Fetching core, theme and plugin file signatures from Wordfence");
 		try {
-			$this->knownFiles = $this->engine->getKnownFilesLoader()
-				->getKnownFiles();
+			$this->knownFiles = $this->engine->getKnownFilesLoader()->getKnownFiles();
 		} catch (wfScanKnownFilesException $e) {
 			wfIssues::statusEndErr();
 			throw $e;
@@ -123,11 +113,31 @@ class wordfenceHash {
 			'plugins' => wfIssues::STATUS_SECURE,
 			'malware' => wfIssues::STATUS_SECURE,
 			);
-		if($this->coreEnabled){ $this->status['core'] = wfIssues::statusStart("Comparing core WordPress files against originals in repository"); } else { wfIssues::statusDisabled("Skipping core scan"); }
-		if($this->themesEnabled){ $this->status['themes'] = wfIssues::statusStart("Comparing open source themes against WordPress.org originals"); } else { wfIssues::statusDisabled("Skipping theme scan"); }
-		if($this->pluginsEnabled){ $this->status['plugins'] = wfIssues::statusStart("Comparing plugins against WordPress.org originals"); } else { wfIssues::statusDisabled("Skipping plugin scan"); }
-		if($this->malwareEnabled){ $this->status['malware'] = wfIssues::statusStart("Scanning for known malware files"); } else { wfIssues::statusDisabled("Skipping malware scan"); }
-		if($this->coreUnknownEnabled){ $this->status['coreUnknown'] = wfIssues::statusStart("Scanning for unknown files in wp-admin and wp-includes"); } else { wfIssues::statusDisabled("Skipping unknown core file scan"); }
+		if($this->coreEnabled){ $this->status['core'] = wfIssues::statusStart("Comparing core WordPress files against originals in repository"); $this->engine->scanController()->startStage(wfScanner::STAGE_FILE_CHANGES); } else { wfIssues::statusDisabled("Skipping core scan"); }
+		if($this->themesEnabled){ $this->status['themes'] = wfIssues::statusStart("Comparing open source themes against WordPress.org originals"); $this->engine->scanController()->startStage(wfScanner::STAGE_FILE_CHANGES); } else { wfIssues::statusDisabled("Skipping theme scan"); }
+		if($this->pluginsEnabled){ $this->status['plugins'] = wfIssues::statusStart("Comparing plugins against WordPress.org originals"); $this->engine->scanController()->startStage(wfScanner::STAGE_FILE_CHANGES); } else { wfIssues::statusDisabled("Skipping plugin scan"); }
+		if($this->malwareEnabled){ $this->status['malware'] = wfIssues::statusStart("Scanning for known malware files"); $this->engine->scanController()->startStage(wfScanner::STAGE_MALWARE_SCAN); } else { wfIssues::statusDisabled("Skipping malware scan"); }
+		if($this->coreUnknownEnabled){ $this->status['coreUnknown'] = wfIssues::statusStart("Scanning for unknown files in wp-admin and wp-includes"); $this->engine->scanController()->startStage(wfScanner::STAGE_FILE_CHANGES); } else { wfIssues::statusDisabled("Skipping unknown core file scan"); }
+		
+		if ($options['scansEnabled_fileContents']) { $this->engine->scanController()->startStage(wfScanner::STAGE_MALWARE_SCAN); }
+		if ($options['scansEnabled_fileContentsGSB']) { $this->engine->scanController()->startStage(wfScanner::STAGE_CONTENT_SAFETY); }
+		
+		if ($this->coreUnknownEnabled && !$this->alertedOnUnknownWordPressVersion && empty($this->knownFiles['core'])) {
+			require(ABSPATH . 'wp-includes/version.php'); //defines $wp_version
+			$this->alertedOnUnknownWordPressVersion = true;
+			$added = $this->engine->addIssue(
+				'coreUnknown',
+				2,
+				'coreUnknown' . $wp_version,
+				'coreUnknown' . $wp_version,
+				'Unknown WordPress core version: ' . $wp_version,
+				"The core files scan will not be run because this version of WordPress is not currently indexed by Wordfence. This may be due to using a prerelease version or because the servers are still indexing a new release. If you are using an official WordPress release, this issue will automatically dismiss once the version is indexed and another scan is run.",
+				array()
+			);
+			
+			if ($added == wfIssues::ISSUE_ADDED || $added == wfIssues::ISSUE_UPDATED) { $this->haveIssues['coreUnknown'] = wfIssues::STATUS_PROBLEM; }
+			else if ($this->haveIssues['coreUnknown'] != wfIssues::STATUS_PROBLEM && ($added == wfIssues::ISSUE_IGNOREP || $added == wfIssues::ISSUE_IGNOREC)) { $this->haveIssues['coreUnknown'] = wfIssues::STATUS_IGNORED; }
+		}
 	}
 	public function __sleep(){
 		return array('striplen', 'totalFiles', 'totalDirs', 'totalData', 'stoppedOnFile', 'coreEnabled', 'pluginsEnabled', 'themesEnabled', 'malwareEnabled', 'coreUnknownEnabled', 'knownFiles', 'haveIssues', 'status', 'possibleMalware', 'path', 'only', 'totalForks', 'alertedOnUnknownWordPressVersion', 'foldersProcessed', 'suspectedFiles', 'indexed', 'indexSize', 'currentIndex', 'foldersEntered');
@@ -188,10 +198,10 @@ class wordfenceHash {
 		$this->_processPendingIssues();
 		
 		wordfence::status(2, 'info', "Analyzed " . $this->totalFiles . " files containing " . wfUtils::formatBytes($this->totalData) . " of data.");
-		if($this->coreEnabled){ wfIssues::statusEnd($this->status['core'], $this->haveIssues['core']); }
-		if($this->themesEnabled){ wfIssues::statusEnd($this->status['themes'], $this->haveIssues['themes']); }
-		if($this->pluginsEnabled){ wfIssues::statusEnd($this->status['plugins'], $this->haveIssues['plugins']); }
-		if($this->coreUnknownEnabled){ wfIssues::statusEnd($this->status['coreUnknown'], $this->haveIssues['coreUnknown']); }
+		if($this->coreEnabled){ wfIssues::statusEnd($this->status['core'], $this->haveIssues['core']); $this->engine->scanController()->completeStage(wfScanner::STAGE_FILE_CHANGES, $this->haveIssues['core']); }
+		if($this->themesEnabled){ wfIssues::statusEnd($this->status['themes'], $this->haveIssues['themes']); $this->engine->scanController()->completeStage(wfScanner::STAGE_FILE_CHANGES, $this->haveIssues['themes']); }
+		if($this->pluginsEnabled){ wfIssues::statusEnd($this->status['plugins'], $this->haveIssues['plugins']); $this->engine->scanController()->completeStage(wfScanner::STAGE_FILE_CHANGES, $this->haveIssues['plugins']); }
+		if($this->coreUnknownEnabled){ wfIssues::statusEnd($this->status['coreUnknown'], $this->haveIssues['coreUnknown']); $this->engine->scanController()->completeStage(wfScanner::STAGE_FILE_CHANGES, $this->haveIssues['coreUnknown']); }
 		if(sizeof($this->possibleMalware) > 0){
 			$malwareResp = $engine->api->binCall('check_possible_malware', json_encode($this->possibleMalware));
 			if($malwareResp['code'] != 200){
@@ -225,7 +235,7 @@ class wordfenceHash {
 				}
 			}
 		}
-		if($this->malwareEnabled){ wfIssues::statusEnd($this->status['malware'], $this->haveIssues['malware']); }
+		if($this->malwareEnabled){ wfIssues::statusEnd($this->status['malware'], $this->haveIssues['malware']); $this->engine->scanController()->completeStage(wfScanner::STAGE_MALWARE_SCAN, $this->haveIssues['malware']); }
 		unset($this->knownFiles); $this->knownFiles = false;
 	}
 	private function _dirIndex($path, &$indexedFiles) {
@@ -340,10 +350,8 @@ class wordfenceHash {
 		return ABSPATH . $file;
 	}
 	private function _checkForTimeout($path, $indexQueue = false) {
-		$this->engine->checkForKill();
-		$this->engine->checkForDurationLimit();
 		$file = substr($path, $this->striplen);
-		if ((!$this->stoppedOnFile) && microtime(true) - $this->startTime > $this->engine->maxExecTime) { //max X seconds but don't allow fork if we're looking for the file we stopped on. Search mode is VERY fast.
+		if ((!$this->stoppedOnFile) && $this->engine->shouldFork()) { //max X seconds but don't allow fork if we're looking for the file we stopped on. Search mode is VERY fast.
 			if ($indexQueue !== false) {
 				$this->_serviceIndexQueue($indexQueue, true);
 				$this->stoppedOnFile = $file;
@@ -392,7 +400,8 @@ class wordfenceHash {
 		}
 		
 		wfUtils::beginProcessingFile($file);
-		$wfHash = self::wfHash($realFile); 
+		$wfHash = self::wfHash($realFile);
+		$this->engine->scanController()->incrementSummaryItem(wfScanner::SUMMARY_SCANNED_FILES);
 		if($wfHash){
 			$md5 = strtoupper($wfHash[0]);
 			$shac = strtoupper($wfHash[1]);
@@ -409,23 +418,6 @@ class wordfenceHash {
 
 			if ($allowKnownFileScan)
 			{
-				if ($this->coreUnknownEnabled && !$this->alertedOnUnknownWordPressVersion && empty($this->knownFiles['core'])) {
-					require(ABSPATH . 'wp-includes/version.php'); //defines $wp_version
-					$this->alertedOnUnknownWordPressVersion = true;
-					$added = $this->engine->addIssue(
-						'coreUnknown',
-						2,
-						'coreUnknown' . $wp_version,
-						'coreUnknown' . $wp_version,
-						'Unknown WordPress core version: ' . $wp_version,
-						"The core files scan will not be run because this version of WordPress is not currently indexed by Wordfence. This may be due to using a prerelease version or because the servers are still indexing a new release. If you are using an official WordPress release, this issue will automatically dismiss once the version is indexed and another scan is run.",
-						array()
-					);
-					
-					if ($added == wfIssues::ISSUE_ADDED || $added == wfIssues::ISSUE_UPDATED) { $this->haveIssues['coreUnknown'] = wfIssues::STATUS_PROBLEM; }
-					else if ($this->haveIssues['coreUnknown'] != wfIssues::STATUS_PROBLEM && ($added == wfIssues::ISSUE_IGNOREP || $added == wfIssues::ISSUE_IGNOREC)) { $this->haveIssues['coreUnknown'] = wfIssues::STATUS_IGNORED; }
-				}
-				
 				if (isset($this->knownFiles['core'][$file]))
 				{
 					if (strtoupper($this->knownFiles['core'][$file]) == $shac)
@@ -466,8 +458,9 @@ class wordfenceHash {
 					{
 						if ($this->pluginsEnabled)
 						{
+							$options = $this->engine->scanController()->scanOptions();
 							$shouldGenerateIssue = true;
-							if (!wfConfig::get('scansEnabled_highSense') && preg_match('~/readme\.(?:txt|md)$~i', $file)) { //Don't generate issues for changed readme files unless high sensitivity is on
+							if (!$options['scansEnabled_highSense'] && preg_match('~/readme\.(?:txt|md)$~i', $file)) { //Don't generate issues for changed readme files unless high sensitivity is on
 								$shouldGenerateIssue = false;
 							}
 							
@@ -508,8 +501,9 @@ class wordfenceHash {
 					{
 						if ($this->themesEnabled)
 						{
+							$options = $this->engine->scanController()->scanOptions();
 							$shouldGenerateIssue = true;
-							if (!wfConfig::get('scansEnabled_highSense') && preg_match('~/readme\.(?:txt|md)$~i', $file)) { //Don't generate issues for changed readme files unless high sensitivity is on
+							if (!$options['scansEnabled_highSense'] && preg_match('~/readme\.(?:txt|md)$~i', $file)) { //Don't generate issues for changed readme files unless high sensitivity is on
 								$shouldGenerateIssue = false;
 							}
 							
@@ -675,6 +669,16 @@ class wordfenceHash {
 			return false;
 		}
 		
+		//Unknown file in a core location
+		if ($this->coreUnknownEnabled && !$this->alertedOnUnknownWordPressVersion) {
+			$restrictedWordPressFolders = array(ABSPATH . 'wp-admin/', ABSPATH . WPINC . '/');
+			foreach ($restrictedWordPressFolders as $path) {
+				if (strpos($fullPath, $path) === 0) {
+					return true;
+				}
+			}
+		}
+		
 		//Determine treatment
 		$fileExt = '';
 		if (preg_match('/\.([a-zA-Z\d\-]{1,7})$/', $file, $matches)) {
@@ -693,22 +697,24 @@ class wordfenceHash {
 			$isJS = true;
 		}
 		
+		$options = $this->engine->scanController()->scanOptions();
+		
 		//If scan images is disabled, only allow .js through
 		if (!$isPHP && preg_match('/^(?:jpg|jpeg|mp3|avi|m4v|mov|mp4|gif|png|tiff?|svg|sql|js|tbz2?|bz2?|xz|zip|tgz|gz|tar|log|err\d+)$/', $fileExt)) {
-			if (!wfConfig::get('scansEnabled_scanImages') && !$isJS) {
+			if (!$options['scansEnabled_scanImages'] && !$isJS) {
 				return false;
 			}
 		}
 		
 		//If high sensitivity is disabled, don't allow .sql
 		if (strtolower($fileExt) == 'sql') {
-			if (!wfConfig::get('scansEnabled_highSense')) {
+			if (!$options['scansEnabled_highSense']) {
 				return false;
 			}
 		}
 		
 		//Treating as binary, return true
-		$treatAsBinary = ($isPHP || $isHTML || wfConfig::get('scansEnabled_scanImages'));
+		$treatAsBinary = ($isPHP || $isHTML || $options['scansEnabled_scanImages']);
 		if ($treatAsBinary) {
 			return true;
 		}
@@ -779,4 +785,3 @@ class wordfenceHash {
 		return false;
 	}
 }
-?>
