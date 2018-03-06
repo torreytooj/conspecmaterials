@@ -3,13 +3,15 @@
 /**
  * Protect direct access
  */
-if ( ! defined( 'ABSPATH' ) ) die( LCS_HACK_MSG );
+if ( ! defined( 'ABSPATH' ) ) die( 'Accessing this file directly is denied.' );
 
  /**
  * Image resizer
  */
 if(!class_exists('Aq_Resize')) {
-    class Aq_Exception extends Exception {}
+    if (!class_exists('Aq_Exception')){
+        class Aq_Exception extends Exception {}
+    }
 
     class Aq_Resize
     {

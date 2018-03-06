@@ -1,9 +1,9 @@
-﻿=== Logo Carousel Slider ===
+=== Logo Carousel Slider ===
 Contributors: AdlPlugins
 Tags: logo, logo carousel, logo slider, logo carousel slider, logo showcase, logo slideshow, clients logo slider, sponsors logo slider, logos, logo slide, carousel, carousel slider, image carousel, image slider, clients logos show, sponsors, clients, partners
-Requires at least: 3.5
-Tested up to: 4.8
-Stable tag: 1.5
+Requires at least: 4.4
+Tested up to: 4.9.1
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,29 +20,30 @@ Logo Carousel Slider is an excellent plugin to display logos of your clients, pa
 *   Touch and Swipe enabled so works great on devices like iPhone, iPad, Blackberry, Android etc.
 *   Support all modern browsers.
 *   Very lightweight.
-*   Enternal/external logo linking.
+*   External/external logo linking.
 *   Display logo with or without title.
 *   Display logo with or without border around.
 *   Settings panel.
 *   Control number of logos to be displayed.
 *   Unlimited logos display.
 *   Auto logos resize and crop.
+*   Image upscaling enable/disable.
 *   Autoplay control.
 *   Navigation arrows.
-*   Logo hover effect enable/disable.
 *   Pagination.
+*   Logo hover effect enable/disable.
+*   Slider title font size and color change options.
 *   Translation ready.
 *   RTL support.
 *   Many more…
 
-More amazing features available in [__Pro version__](http://adlplugins.com/plugin/logo-carousel-slider-pro).
+More amazing features available in [__Pro version__](https://adlplugins.com/plugin/logo-carousel-slider-pro).
 
 = Features of the Pro version =
-*   It has all the features of the free version.
 *   Advanced shortcode generator. No more pain of understanding shortcode attributes and write them.
 *   Advanced settings panel.
 *   Unique settings for each logo carousel slider.
-*   Unlimited logo carousel sliders with differnt logos.
+*   Unlimited logo carousel sliders with different logos.
 *   Multiple logo carousel sliders on one page.
 *   Logos categorization.
 *   Logos displaying from latest and older published, category, logo id, specific month and year.
@@ -51,21 +52,16 @@ More amazing features available in [__Pro version__](http://adlplugins.com/plugi
 *	Custom widget with the ability to customize settings on widgets page. 
 *   A lot of variations in displaying navigation arrows.
 *   Two different styles for pagination.
-*   Visual Composer Addon.
+*   Visual Composer Add-on.
 *   Right to left scrolling.
 *   Tooltip.
 *   Slide Speed control.
 *   Mouse over stop option.
-*   Super lightweight.
-*   Slider title font size, color, hover color change options.
 *   Navigation arrows, background, hover color change options.
 *   Logo border color and hover color change options.
 *   Logo title font size, color, hover color change options.
 *   Tooltip font size, color, background color, hover color change options.
 *   Pagination color change option.
-*   100% Responsive and mobile friendly.
-*   Touch and Swipe enabled so works great on devices like iPhone, iPad, Blackberry, Android etc.
-*   Support all modern browsers.
 *   Many more…
 
 Live demo: <https://adlplugins.com/demos/logo-carousel-slider/#proversion>
@@ -86,6 +82,13 @@ After successfully installing and activating the plugin, you will find "Logo Car
 
 == Changelog ==
 
+= 2.0 =
+* Completely rewrote the plugin using Object Oriented PHP
+* Decreased database query by optimizing codes
+* Improved the performance of the plugin tremendously
+* Improved Security
+* Added the feature of displaying navigation arrows on top left 
+* Added image upscaling, slider title font size and color change options
 = 1.5 =
 * Fixed RTL issue
 * Fixed some minor issues

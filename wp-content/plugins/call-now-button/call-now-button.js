@@ -26,3 +26,38 @@ jQuery(document).ready(function($){
     	}, 500);
 	});
 });
+
+const textButtonField = document.querySelector("#buttonTextField");
+
+textFieldChars();
+
+textButtonField.addEventListener("keyup", textFieldChars);
+
+function textFieldChars() {
+	chars = textButtonField.value.length;
+	if(chars>0) {
+		toggleVisibility('.appearance-options', 'none');
+		toggleVisibility('.classic', 'none');
+		toggleVisibility('.appearanceDesc', 'block');
+		toggleVisibility('.notempty', 'block')
+	} else {
+		toggleVisibility('.appearance-options', 'block');
+		toggleVisibility('.classic', 'table-row');
+		toggleVisibility('.appearanceDesc', 'none');
+		toggleVisibility('.notempty', 'none')
+	}
+	if( chars > 15 ) {
+		document.querySelector('.lengthwarning').innerHTML = "Your text is " + chars + " characters.";
+		document.querySelector('.lengthwarning').style.color = '#C00';
+	} else if(chars > 0) {
+		document.querySelector('.lengthwarning').innerHTML = "Your text is " + chars + " character(s).";
+		document.querySelector('.lengthwarning').style.color = '#444';
+	} else {
+		document.querySelector('.lengthwarning').innerHTML = "Leave blank to only show the button with icon.";
+		document.querySelector('.lengthwarning').style.color = '#444';
+	}
+}
+
+function toggleVisibility(selector, value) {
+	document.querySelector(selector).style.display = value;
+}

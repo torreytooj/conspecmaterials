@@ -4,8 +4,8 @@ Tags: seo, import seo, search engine optimization, import search engine optimiza
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.1.0
-Tested up to: 4.6.1
-Stable tag: 1.1.5
+Tested up to: 4.9
+Stable tag: 1.1.7
 
 Easily import SEO settings from any XML or CSV file to Yoast WordPress SEO with the Yoast WordPress SEO Add-On for WP All Import.
 
@@ -65,6 +65,12 @@ To install the Yoast WordPress SEO Add-On, either:
 The Yoast WordPress SEO Add-On will appear in the Step 3 of WP All Import.
 
 == Changelog ==
+
+= 1.1.7 =
+* Remove deprecated fields to fix issue with WooCommerce API.
+
+= 1.1.6 =
+* Added ability to import SEO data in a Taxonomy import.
 
 = 1.1.5 =
 * Removed Yoast section from Taxonomy imports

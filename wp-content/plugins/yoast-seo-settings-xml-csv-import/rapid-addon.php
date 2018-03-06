@@ -1,4 +1,12 @@
 <?php
+/**
+ * RapidAddon
+ *
+ * @package     WP All Import RapidAddon
+ * @copyright   Copyright (c) 2014, Soflyy
+ * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
+ * @version 	1.1.0
+ */
 
 if (!class_exists('RapidAddon')) {
 	
@@ -44,13 +52,17 @@ if (!class_exists('RapidAddon')) {
 			'auto_set_extension' => 0,
 			'new_extension' => '',
 			'do_not_remove_images' => 1,
-		);	
+		);
+
+		protected $isWizard = true;
 
 		function __construct($name, $slug) {
 
 			$this->name = $name;
 			$this->slug = $slug;
-
+			if (!empty($_GET['id'])){
+				$this->isWizard = false;
+			}
 		}
 
 		function set_import_function($name) {
@@ -150,9 +162,9 @@ if (!class_exists('RapidAddon')) {
 		}
 
 
-		function add_field($field_slug, $field_name, $field_type, $enum_values = null, $tooltip = "", $is_html = true) {
+		function add_field($field_slug, $field_name, $field_type, $enum_values = null, $tooltip = "", $is_html = true, $default_text = '') {
 
-			$field =  array("name" => $field_name, "type" => $field_type, "enum_values" => $enum_values, "tooltip" => $tooltip, "is_sub_field" => false, "is_main_field" => false, "slug" => $field_slug, "is_html" => $is_html);
+			$field =  array("name" => $field_name, "type" => $field_type, "enum_values" => $enum_values, "tooltip" => $tooltip, "is_sub_field" => false, "is_main_field" => false, "slug" => $field_slug, "is_html" => $is_html, 'default_text' => $default_text);
 
 			$this->fields[$field_slug] = $field;
 
@@ -180,6 +192,35 @@ if (!class_exists('RapidAddon')) {
 
 		}
 
+		function add_acf_field($field){
+			$this->fields[$field->post_name] = array(
+				'type' => 'acf',
+				'field_obj' => $field
+			);
+		}
+
+		private $acfGroups = array();
+
+		function use_acf_group($acf_group){
+			$this->add_text(
+				'<div class="postbox acf_postbox default acf_signle_group rad4">
+    <h3 class="hndle" style="margin-top:0;"><span>'.$acf_group['title'].'</span></h3>
+	    <div class="inside">');
+			$acf_fields = get_posts(array('posts_per_page' => -1, 'post_type' => 'acf-field', 'post_parent' => $acf_group['ID'], 'post_status' => 'publish', 'orderby' => 'menu_order', 'order' => 'ASC'));
+			if (!empty($acf_fields)){
+				foreach ($acf_fields as $field) {
+					$this->add_acf_field($field);
+				}
+			}
+			$this->add_text('</div></div>');
+			$this->acfGroups[] = $acf_group['ID'];
+			add_filter('wp_all_import_acf_is_show_group', array($this, 'acf_is_show_group'), 10, 2);
+		}
+
+		function acf_is_show_group($is_show, $acf_group){
+			return (in_array($acf_group['ID'], $this->acfGroups)) ? false : true;
+		}
+
 		/**
 		* 
 		* Add an option to WP All Import options list
@@ -197,7 +238,7 @@ if (!class_exists('RapidAddon')) {
 			$options_list = array();
 
 			foreach ($this->fields as $field_slug => $field_params) {
-				if (in_array($field_params['type'], array('title', 'plain_text'))) continue;
+				if (in_array($field_params['type'], array('title', 'plain_text', 'acf'))) continue;
 				$default_value = '';
 				if (!empty($field_params['enum_values'])){
 					foreach ($field_params['enum_values'] as $key => $value) {						
@@ -334,12 +375,12 @@ if (!class_exists('RapidAddon')) {
 					}					
 
 					// apply mapping rules if they exist
-					if ($import_options['mapping'][$field_slug]) {
+					if (!empty($import_options['mapping'][$field_slug])) {
 						$mapping_rules = json_decode($import_options['mapping'][$field_slug], true);
 
 						if (!empty($mapping_rules) and is_array($mapping_rules)) {
 							foreach ($mapping_rules as $rule_number => $map_to) {
-								if (!empty($map_to[trim($data[$field_slug])])){
+								if (isset($map_to[trim($data[$field_slug])])){
 									$data[$field_slug] = trim($map_to[trim($data[$field_slug])]);
 									break;
 								}
@@ -406,8 +447,10 @@ if (!class_exists('RapidAddon')) {
 		}		
 
 		function render_field($field_params, $field_slug, $current_values, $in_the_bottom = false){
-			
-			if (!isset($current_values[$this->slug][$field_slug])) { $current_values[$this->slug][$field_slug] = ''; }
+
+			if (!isset($current_values[$this->slug][$field_slug])) {
+				$current_values[$this->slug][$field_slug] = isset($field_params['default_text']) ? $field_params['default_text'] : '';
+			}
 
 			if ($field_params['type'] == 'text') {
 
@@ -417,7 +460,7 @@ if (!class_exists('RapidAddon')) {
 					array(
 						'tooltip' => $field_params['tooltip'],
 						'field_name' => $this->slug."[".$field_slug."]",
-						'field_value' => $current_values[$this->slug][$field_slug]
+						'field_value' => ( $current_values[$this->slug][$field_slug] == '' && $this->isWizard ) ? $field_params['default_text'] : $current_values[$this->slug][$field_slug]
 					)
 				);
 
@@ -429,7 +472,19 @@ if (!class_exists('RapidAddon')) {
 					array(
 						'tooltip' => $field_params['tooltip'],
 						'field_name' => $this->slug."[".$field_slug."]",
-						'field_value' => $current_values[$this->slug][$field_slug]
+						'field_value' => ( $current_values[$this->slug][$field_slug] == '' && $this->isWizard ) ? $field_params['default_text'] : $current_values[$this->slug][$field_slug]
+					)
+				);
+
+			} else if ($field_params['type'] == 'wp_editor') {
+
+				PMXI_API::add_field(
+					'wp_editor',
+					$field_params['name'],
+					array(
+						'tooltip' => $field_params['tooltip'],
+						'field_name' => $this->slug."[".$field_slug."]",
+						'field_value' => ( $current_values[$this->slug][$field_slug] == '' && $this->isWizard ) ? $field_params['default_text'] : $current_values[$this->slug][$field_slug]
 					)
 				);
 
@@ -488,6 +543,16 @@ if (!class_exists('RapidAddon')) {
 					)
 				);
 
+			} else if($field_params['type'] == 'acf') {
+				$fieldData = (!empty($field_params['field_obj']->post_content)) ? unserialize($field_params['field_obj']->post_content) : array();
+				$fieldData['ID']    = $field_params['field_obj']->ID;
+				$fieldData['id']    = $field_params['field_obj']->ID;
+				$fieldData['label'] = $field_params['field_obj']->post_title;
+				$fieldData['key']   = $field_params['field_obj']->post_name;
+				if (empty($fieldData['name'])) $fieldData['name'] = $field_params['field_obj']->post_excerpt;
+				if (function_exists('pmai_render_field')) {
+					echo pmai_render_field($fieldData, ( ! empty($current_values) ) ? $current_values : array() );
+				}
 			} else if($field_params['type'] == 'title'){
 				?>
 				<h4 class="wpallimport-add-on-options-title"><?php _e($field_params['name'], 'wp_all_import_plugin'); ?><?php if ( ! empty($field_params['tooltip'])): ?><a href="#help" class="wpallimport-help" title="<?php echo $field_params['tooltip']; ?>" style="position:relative; top: -1px;">?</a><?php endif; ?></h4>				
@@ -524,7 +589,7 @@ if (!class_exists('RapidAddon')) {
 							foreach ($value as $k => $sub_field) {								
 								if (is_array($sub_field) and ! empty($this->fields[$sub_field['slug']]))
 								{									
-									$sub_fields[$key][] = $this->convert_field($sub_field, $current_values);									
+									$sub_fields[$key][] = $this->convert_field($sub_field, $current_values);
 								}								
 							}
 						}
@@ -536,6 +601,9 @@ if (!class_exists('RapidAddon')) {
 
 		function convert_field($sub_field, $current_values){
 			$field = array();
+			if (!isset($current_values[$this->slug][$sub_field['slug']])) {
+				$current_values[$this->slug][$sub_field['slug']] = isset($sub_field['default_text']) ? $sub_field['default_text'] : '';
+			}
 			switch ($this->fields[$sub_field['slug']]['type']) {
 				case 'text':
 					$field = array(
@@ -544,7 +612,7 @@ if (!class_exists('RapidAddon')) {
 						'params' => array(
 							'tooltip' => $this->fields[$sub_field['slug']]['tooltip'],
 							'field_name' => $this->slug."[".$sub_field['slug']."]",
-							'field_value' => $current_values[$this->slug][$sub_field['slug']],
+							'field_value' => ($current_values[$this->slug][$sub_field['slug']] == '' && $this->isWizard) ? $sub_field['default_text'] : $current_values[$this->slug][$sub_field['slug']],
 							'is_main_field' => $sub_field['is_main_field']
 						)
 					);
@@ -556,7 +624,19 @@ if (!class_exists('RapidAddon')) {
 						'params' => array(
 							'tooltip' => $this->fields[$sub_field['slug']]['tooltip'],
 							'field_name' => $this->slug."[".$sub_field['slug']."]",
-							'field_value' => $current_values[$this->slug][$sub_field['slug']],
+							'field_value' => ($current_values[$this->slug][$sub_field['slug']] == '' && $this->isWizard) ? $sub_field['default_text'] : $current_values[$this->slug][$sub_field['slug']],
+							'is_main_field' => $sub_field['is_main_field']
+						)
+					);
+					break;
+				case 'wp_editor':
+					$field = array(
+						'type'   => 'wp_editor',
+						'label'  => $this->fields[$sub_field['slug']]['name'],
+						'params' => array(
+							'tooltip' => $this->fields[$sub_field['slug']]['tooltip'],
+							'field_name' => $this->slug."[".$sub_field['slug']."]",
+							'field_value' => ($current_values[$this->slug][$sub_field['slug']] == '' && $this->isWizard) ? $sub_field['default_text'] : $current_values[$this->slug][$sub_field['slug']],
 							'is_main_field' => $sub_field['is_main_field']
 						)
 					);
@@ -888,12 +968,12 @@ if (!class_exists('RapidAddon')) {
 							if ($import->options[$this->slug]['xpaths'][$option_name] == ""){
 								$count and $this->data[$option_name] = array_fill(0, $count, "");
 							} else {
-								$data[$option_name] = XmlImportParser::factory($xml, $cxpath, $import->options[$this->slug]['xpaths'][$option_name], $file)->parse($records);
+								$data[$option_name] = XmlImportParser::factory($xml, $cxpath, (string) $import->options[$this->slug]['xpaths'][$option_name], $file)->parse($records);
 								$tmp_files[] = $file;						
 							}
 						} 
 						else {							
-							$data[$option_name] = XmlImportParser::factory($xml, $cxpath, $import->options[$this->slug][$option_name], $file)->parse();
+							$data[$option_name] = XmlImportParser::factory($xml, $cxpath, (string) $import->options[$this->slug][$option_name], $file)->parse();
 							$tmp_files[] = $file;
 						}
 

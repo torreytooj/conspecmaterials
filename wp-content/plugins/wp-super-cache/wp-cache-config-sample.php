@@ -98,4 +98,8 @@ $wp_cache_preload_email_volume = 'none';
 $wp_cache_mobile_prefixes = '';
 $cached_direct_pages = array();
 $wpsc_served_header = false;
+$cache_gc_email_me = 0;
+$wpsc_save_headers = 0;
+$cache_schedule_interval = 'daily';
+$wp_super_cache_comments = 1;
 ?>
