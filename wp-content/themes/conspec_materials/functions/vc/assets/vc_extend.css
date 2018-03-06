@@ -1,0 +1,55 @@
+.wpb_vc_media_grid .vc_element-icon,
+.wpb_vc_featured_module_1 .vc_element-icon,
+.wpb_vc_featured_module_2 .vc_element-icon,
+.wpb_vc_featured_module_3 .vc_element-icon,
+.wpb_vc_module .vc_element-icon,
+.wpb_vc_widget .vc_element-icon,
+.wpb_vc_meta_block .vc_element-icon,
+.wpb_vc_iconitem .vc_element-icon,
+.wpb_icon_header .vc_element-icon,
+.wpb_vc_blockquote .vc_element-icon,
+.wpb_vc_new_button .vc_element-icon,
+.wpb_vc_new_callout .vc_element-icon
+.wpb_vc_divider .vc_element-icon,
+.wpb_vc_add_shortcode .vc_element-icon{
+	background: url(vc_extend_lpd-logo.png) white no-repeat;
+}
+
+.wpb_vc_media_grid .wpb_element_wrapper div,
+.wpb_vc_featured_module_1 .wpb_element_wrapper div,
+.wpb_vc_featured_module_2 .wpb_element_wrapper div,
+.wpb_vc_featured_module_3 .wpb_element_wrapper div,
+.wpb_vc_module .wpb_element_wrapper div,
+.wpb_vc_widget .wpb_element_wrapper div,
+.wpb_vc_meta_block .wpb_element_wrapper div,
+.wpb_vc_iconitem .wpb_element_wrapper div,
+.wpb_icon_header .wpb_element_wrapper div,
+.wpb_vc_blockquote .wpb_element_wrapper div,
+.wpb_vc_new_button .wpb_element_wrapper div,
+.wpb_vc_new_callout .wpb_element_wrapper div,
+.wpb_vc_divider .wpb_element_wrapper div,
+.wpb_vc_add_shortcode .wpb_element_wrapper div{
+	display: none;
+}
+.wpb_vc_module .wpb_element_wrapper div.title,
+.wpb_vc_featured_module_1 .wpb_element_wrapper div.title,
+.wpb_vc_featured_module_2 .wpb_element_wrapper div.title,
+.wpb_vc_featured_module_3 .wpb_element_wrapper div.title,
+.wpb_vc_widget .wpb_element_wrapper div.title,
+.wpb_vc_meta_block .wpb_element_wrapper div.title,
+.wpb_vc_iconitem .wpb_element_wrapper div.title,
+.wpb_vc_blockquote .wpb_element_wrapper div.cite,
+.wpb_vc_new_button .wpb_element_wrapper div.text,
+.wpb_vc_new_callout .wpb_element_wrapper div.title{
+	display: block;
+}
+.wpb-elements-list-modal .vc_element-icon.icon-wpb-lpd{
+	background: url(vc_extend_lpd-logo.png) no-repeat center;
+}
+.wpb_element_wrapper .textarea{
+    border: none;
+    font-family: inherit;
+    line-height: inherit;
+    padding: 0;
+    width: auto;
+}

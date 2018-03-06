@@ -1,0 +1,15 @@
+/* bootstrap
+-------------------------------------------------- */
+body{
+	min-width: 970px;
+}
+
+.container {
+  width: 970px;
+}
+	.boxed #header,
+	.boxed #title-breadcrumb,
+	.boxed #main,
+	.boxed #footer{
+		width: 1000px;
+	}	

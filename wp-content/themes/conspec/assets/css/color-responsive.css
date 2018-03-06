@@ -1,0 +1,8 @@
+@media (max-width: 991px) {
+	.ws-dropdown ul li a{
+		color: #76abe8;
+	}
+	.ws-dropdown ul li a:hover{
+		color: #364a61;
+	}
+}

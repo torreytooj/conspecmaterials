@@ -1,0 +1,47 @@
+/* bootstrap */
+
+body{
+	font-family: 'Lato', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	font-family: 'Lato', sans-serif;
+}
+
+.wordpress-456industry.woocommerce-page #payment div.payment_box,
+.input-text,
+#shipping_country,
+#billing_country,
+#calc_shipping_state{
+	font-size: 13px;
+}
+
+.dropdown-header,
+.dropdown-menu,
+.form-control,
+body{
+	font-size: 13px;
+}
+
+.dropdown-menu section li a,
+.dropdown-menu > li > a{
+	font-size: 15px;
+}
+.navbar-nav > li > a{
+	font-size: 13px;
+}
+/* application */
+
+
+/* woocommerece */

@@ -1,0 +1,359 @@
+/*!
+ *
+ *  Project:  GLYPHICONS HALFLINGS
+ *  Author:   Jan Kovarik - www.glyphicons.com
+ *  Twitter:  @glyphicons
+ *
+ */
+@font-face {
+  font-family: 'Glyphicons Social Regular';
+  src: url('../fonts/glyphicons-social-regular.eot');
+  src: url('../fonts/glyphicons-social-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-social-regular.woff') format('woff'), url('../fonts/glyphicons-social-regular.ttf') format('truetype'), url('../fonts/glyphicons-social-regular.svg#glyphicons_socialregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.social {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  color: #555;
+  text-decoration: none;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: middle;
+}
+.social:before {
+  position: absolute;
+  left: 0;
+  top: 3px;
+  display: inline-block;
+  margin: 0 5px 0 0;
+  font: 24px/1em 'Glyphicons Social Regular';
+  font-style: normal;
+  font-weight: normal;
+  color: #555;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: middle;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-transition: all .15s;
+  -moz-transition: all .15s;
+  -o-transition: all .15s;
+  transition: all .15s;
+}
+.social.white:before {
+  color: #fff;
+}
+.social.pinterest:before {
+  content: "\E001";
+}
+.social.pinterest:hover:before {
+  color: #cc2129;
+}
+.social.dropbox:before {
+  content: "\E002";
+}
+.social.dropbox:hover:before {
+  color: #007ee5;
+}
+.social.google_plus:before {
+  content: "\E003";
+}
+.social.google_plus:hover:before {
+  color: #252525;
+}
+.social.jolicloud:before {
+  content: "\E004";
+}
+.social.jolicloud:hover:before {
+  color: #00B2DF;
+}
+.social.yahoo:before {
+  content: "\E005";
+}
+.social.yahoo:hover:before {
+  color: #65106d;
+}
+.social.blogger:before {
+  content: "\E006";
+}
+.social.blogger:hover:before {
+  color: #fe6601;
+}
+.social.picasa:before {
+  content: "\E007";
+}
+.social.picasa:hover:before {
+  color: #959595;
+}
+.social.amazon:before {
+  content: "\E008";
+}
+.social.amazon:hover:before {
+  color: #ff9f47;
+}
+.social.tumblr:before {
+  content: "\E009";
+}
+.social.tumblr:hover:before {
+  color: #2c4762;
+}
+.social.wordpress:before {
+  content: "\E010";
+}
+.social.wordpress:hover:before {
+  color: #959595;
+}
+.social.instapaper:before {
+  content: "\E011";
+}
+.social.instapaper:hover:before {
+  color: #252525;
+}
+.social.evernote:before {
+  content: "\E012";
+}
+.social.evernote:hover:before {
+  color: #5FB336;
+}
+.social.xing:before {
+  content: "\E013";
+}
+.social.xing:hover:before {
+  color: #015965;
+}
+.social.zootool:before {
+  content: "\E014";
+}
+.social.zootool:hover:before {
+  color: #252525;
+}
+.social.dribbble:before {
+  content: "\E015";
+}
+.social.dribbble:hover:before {
+  color: #c5386d;
+}
+.social.deviantart:before {
+  content: "\E016";
+}
+.social.deviantart:hover:before {
+  color: #4b5d4f;
+}
+.social.read_it_later:before {
+  content: "\E017";
+}
+.social.read_it_later:hover:before {
+  color: #959595;
+}
+.social.linked_in:before {
+  content: "\E018";
+}
+.social.linked_in:hover:before {
+  color: #006699;
+}
+.social.forrst:before {
+  content: "\E019";
+}
+.social.forrst:hover:before {
+  color: #32723e;
+}
+.social.pinboard:before {
+  content: "\E020";
+}
+.social.pinboard:hover:before {
+  color: #2655f4;
+}
+.social.behance:before {
+  content: "\E021";
+}
+.social.behance:hover:before {
+  color: #2f9ad2;
+}
+.social.github:before {
+  content: "\E022";
+}
+.social.github:hover:before {
+  color: #252525;
+}
+.social.youtube:before {
+  content: "\E023";
+}
+.social.youtube:hover:before {
+  color: #c4302b;
+}
+.social.skitch:before {
+  content: "\E024";
+}
+.social.skitch:hover:before {
+  color: #fd336e;
+}
+.social.foursquare:before {
+  content: "\E025";
+}
+.social.foursquare:hover:before {
+  color: #3a6ec2;
+}
+.social.quora:before {
+  content: "\E026";
+}
+.social.quora:hover:before {
+  color: #a82300;
+}
+.social.badoo:before {
+  content: "\E027";
+}
+.social.badoo:hover:before {
+  color: #ff8b23;
+}
+.social.spotify:before {
+  content: "\E028";
+}
+.social.spotify:hover:before {
+  color: #7cc011;
+}
+.social.stumbleupon:before {
+  content: "\E029";
+}
+.social.stumbleupon:hover:before {
+  color: #eb4823;
+}
+.social.readability:before {
+  content: "\E030";
+}
+.social.readability:hover:before {
+  color: #9C0001;
+}
+.social.facebook:before {
+  content: "\E031";
+}
+.social.facebook:hover:before {
+  color: #3b5998;
+}
+.social.twitter:before {
+  content: "\E032";
+}
+.social.twitter:hover:before {
+  color: #1ec7ff;
+}
+.social.instagram:before {
+  content: "\E033";
+}
+.social.instagram:hover:before {
+  color: #959595;
+}
+.social.posterous_spaces:before {
+  content: "\E034";
+}
+.social.posterous_spaces:hover:before {
+  color: #959595;
+}
+.social.vimeo:before {
+  content: "\E035";
+}
+.social.vimeo:hover:before {
+  color: #44bbff;
+}
+.social.flickr:before {
+  content: "\E036";
+}
+.social.flickr:hover:before {
+  color: #ff0084;
+}
+.social.last_fm:before {
+  content: "\E037";
+}
+.social.last_fm:hover:before {
+  color: #d60148;
+}
+.social.rss:before {
+  content: "\E038";
+}
+.social.rss:hover:before {
+  color: #fa9d39;
+}
+.social.skype:before {
+  content: "\E039";
+}
+.social.skype:hover:before {
+  color: #0ca6df;
+}
+.social.e-mail:before {
+  content: "\E040";
+}
+.social.e-mail:hover:before {
+  color: #959595;
+}
+.social.vine:before {
+  content: "\E041";
+}
+.social.vine:hover:before {
+  color: #00AC7F;
+}
+.social.myspace:before {
+  content: "\E042";
+}
+.social.myspace:hover:before {
+  color: #252525;
+}
+.social.goodreads:before {
+  content: "\E043";
+}
+.social.goodreads:hover:before {
+  color: #874a0e;
+}
+.social.apple:before {
+  content: "\F8FF";
+}
+.social.apple:hover:before {
+  color: #959595;
+}
+.social.windows:before {
+  content: "\E045";
+}
+.social.windows:hover:before {
+  color: #00adf1;
+}
+.social.yelp:before {
+  content: "\E046";
+}
+.social.yelp:hover:before {
+  color: #c41301;
+}
+.social.playstation:before {
+  content: "\E047";
+}
+.social.playstation:hover:before {
+  color: #959595;
+}
+.social.xbox:before {
+  content: "\E048";
+}
+.social.xbox:hover:before {
+  color: #959595;
+}
+.social.android:before {
+  content: "\E049";
+}
+.social.android:hover:before {
+  color: #a4c639;
+}
+.social.ios:before {
+  content: "\E050";
+}
+.social.ios:hover:before {
+  color: #959595;
+}
+.social-icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  line-height: 30px;
+  vertical-align: text-top;
+  vertical-align: top;
+  *display: inline;
+  *zoom: 1;
+  *margin-right: .3em;
+}

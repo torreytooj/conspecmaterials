@@ -1,0 +1,54 @@
+# Ignore paths that contain user-generated content.
+/wp-content/aiowps_backups
+/wp-content/cache
+/wp-content/updraft
+/wp-content/uploads
+
+# Domain Directories
+/conspecmail
+/conspecmaterials.com
+/conspecold
+/original
+
+# Omitted Directories
+/mail
+
+# Omitted Files
+.htaccess
+.ftpquota
+error_log
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.bz2
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+
+# Logs and databases #
+######################
+*.log
+*.sql
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon
+
+Thumbs.db
+._*
+
+# Vim generated files #
+######################
+*.un~
+
+# SASS #
+##########
+.sass-cache
